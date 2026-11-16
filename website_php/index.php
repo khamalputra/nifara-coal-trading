@@ -92,8 +92,8 @@ require_once __DIR__ . '/includes/header.php';
         <h2 class="about-title" id="h-tentang" data-en="About <span class='gold-highlight'>us</span>">
           Tentang <span class="gold-highlight">kami</span>
         </h2>
-        <p class="about-lead" data-en="PT. Nifara Coal Trading holds official coal transport and trading licenses to supply industrial users across Indonesia and Asia—the primary thermal coal import destination worldwide.">
-          PT. Nifara Coal Trading memegang izin usaha resmi Pengangkutan dan Penjualan Batubara untuk melayani kebutuhan pabrik dan industri di Indonesia serta pasar Asia—kawasan importir batubara termal terbesar di dunia.
+        <p class="about-lead" data-en="PT. Nifara Coal Trading holds official coal transport and trading licenses to supply industrial users across Indonesia and Asia, the primary thermal coal import destination worldwide.">
+          PT. Nifara Coal Trading memegang izin usaha resmi Pengangkutan dan Penjualan Batubara untuk melayani kebutuhan pabrik dan industri di Indonesia serta pasar Asia yang merupakan importir batubara termal terbesar di dunia.
         </p>
         <p class="about-body" data-en="With seasoned field specialists and direct mine partnerships, we secure reliable coal deliveries from origin pits straight to end-user facilities.">
           Didukung tim operasional berpengalaman dan relasi langsung di sepanjang rantai pasok, kami menjaga kepastian pasokan batubara mulai dari mulut tambang hingga sampai di fasilitas pabrik Anda.
