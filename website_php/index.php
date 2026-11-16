@@ -92,11 +92,11 @@ require_once __DIR__ . '/includes/header.php';
         <h2 class="about-title" id="h-tentang" data-en="About <span class='gold-highlight'>us</span>">
           Tentang <span class="gold-highlight">kami</span>
         </h2>
-        <p class="about-lead" data-en="PT. Nifara Coal Trading is an officially licensed coal transport and trading company, serving diverse industries with a primary focus on Indonesian and Asian markets—the world's largest thermal coal import region.">
-          PT. Nifara Coal Trading merupakan perusahaan yang memiliki izin usaha resmi Pengangkutan dan Penjualan Batubara. Kami melayani pengguna batubara di berbagai industri, dengan fokus utama pada pasar Indonesia dan Asia—kawasan yang merupakan importir batubara termal terbesar di dunia.
+        <p class="about-lead" data-en="PT. Nifara Coal Trading holds official coal transport and trading licenses to supply industrial users across Indonesia and Asia—the primary thermal coal import destination worldwide.">
+          PT. Nifara Coal Trading memegang izin usaha resmi Pengangkutan dan Penjualan Batubara untuk melayani kebutuhan pabrik dan industri di Indonesia serta pasar Asia—kawasan importir batubara termal terbesar di dunia.
         </p>
-        <p class="about-body" data-en="Backed by an experienced team, robust technical expertise, and solid relationships across the coal value chain, we manage supply reliability from the source of production through to end consumers.">
-          Didukung oleh tim yang berpengalaman, keahlian yang kuat, serta hubungan yang terjalin baik di sepanjang rantai nilai batubara, kami memastikan keandalan pasokan mulai dari sumber produksi hingga konsumen akhir.
+        <p class="about-body" data-en="With seasoned field specialists and direct mine partnerships, we secure reliable coal deliveries from origin pits straight to end-user facilities.">
+          Didukung tim operasional berpengalaman dan relasi langsung di sepanjang rantai pasok, kami menjaga kepastian pasokan batubara mulai dari mulut tambang hingga sampai di fasilitas pabrik Anda.
         </p>
       </div>
       <figure class="figure about-card" style="margin:0">
@@ -108,8 +108,8 @@ require_once __DIR__ . '/includes/header.php';
             <span class="about-card-bar" aria-hidden="true"></span>
             <strong class="about-card-title" data-en="Our company">Perusahaan kami</strong>
           </div>
-          <p class="about-card-desc" data-en="PT. Nifara Coal Trading was established in 2026. Supported by an experienced team and an extensive logistics network, we manage coal procurement from reputable mines through to end-user delivery points.">
-            PT. Nifara Coal Trading didirikan pada tahun 2026. Didukung oleh tim berpengalaman dan jaringan logistik yang luas, kami mengelola pengadaan komoditas batubara dari tambang tepercaya hingga titik serah konsumen.
+          <p class="about-card-desc" data-en="PT. Nifara Coal Trading was founded in 2026. Leveraging trusted mining partnerships and integrated marine transport, we manage raw commodity sourcing through to final site reception.">
+            PT. Nifara Coal Trading didirikan pada tahun 2026. Melalui kemitraan tambang tepercaya dan armada logistik maritim terpadu, kami menangani pengadaan komoditas batubara hingga tiba di dermaga penerima konsumen.
           </p>
         </figcaption>
       </figure>
@@ -174,8 +174,8 @@ require_once __DIR__ . '/includes/header.php';
         <h2 class="vm-title" id="h-visi" data-en="Vision &amp; <span class='gold-highlight'>mission</span>">
           Visi &amp; <span class="gold-highlight">misi</span>
         </h2>
-        <p class="vm-lead" data-en="Our long-term commitment and strategic steps in supporting national and regional energy resilience.">
-          Komitmen jangka panjang dan langkah strategis kami dalam mendukung ketahanan energi nasional dan regional.
+        <p class="vm-lead" data-en="Our operational commitment and directed actions to safeguard domestic and regional energy resilience.">
+          Arah kebijakan dan komitmen nyata kami dalam mengawal ketahanan energi industri nasional maupun regional.
         </p>
       </div>
 
@@ -191,8 +191,8 @@ require_once __DIR__ . '/includes/header.php';
               <span class="vm-card-bar" aria-hidden="true"></span>
               <h3 class="vm-card-title" data-en="Corporate vision">Visi perusahaan</h3>
             </div>
-            <p class="vm-statement" data-en="To become a leading independent coal transport and trading company in Indonesia, providing high-quality coal for domestic and international markets, while establishing enduring, trusted partnerships with our clients.">
-              Menjadi perusahaan pengangkutan dan penjualan batubara independen terkemuka di Indonesia, menyediakan batubara berkualitas tinggi untuk pasar domestik maupun internasional, serta membangun kemitraan jangka panjang yang tepercaya dengan para pelanggan kami.
+            <p class="vm-statement" data-en="To build a reliable independent coal trading and transport network across Indonesia and Asia, delivering consistent commodity quality while maintaining accountable, long-term buyer relationships.">
+              Menjadi mitra niaga dan pengangkutan batubara independen terpercaya di Indonesia, memasok komoditas berkalori stabil untuk kebutuhan industri domestik maupun ekspor, serta mengutamakan akuntabilitas kemitraan jangka panjang.
             </p>
             <div class="vm-tags">
               <span class="vm-tag" data-en="Independent trading">Niaga independen</span>
@@ -211,24 +211,24 @@ require_once __DIR__ . '/includes/header.php';
           <div class="vm-card-body">
             <div class="vm-card-header">
               <span class="vm-card-bar" aria-hidden="true"></span>
-              <h3 class="vm-card-title" data-en="Strategic mission">Misi strategis</h3>
+              <h3 class="vm-card-title" data-en="Strategic mission">Misi operasional</h3>
             </div>
             <div class="vm-pillars">
               <div class="vm-pillar">
                 <span class="vm-num">01</span>
                 <div>
-                  <h4 class="vm-pillar-title" data-en="Energy security &amp; power generation">Ketahanan energi &amp; kelistrikan</h4>
-                  <p class="vm-pillar-desc" data-en="To fulfill rapidly expanding energy demands in Indonesia, particularly in developing power plants and industrial sectors, recognizing that access to energy—especially electricity—is crucial for economic and social development.">
-                    Memenuhi kebutuhan energi yang tumbuh pesat di Indonesia, khususnya dalam pengembangan pembangkit listrik dan sektor industri, mengingat akses terhadap energi—terutama listrik—sangatlah krusial bagi pembangunan ekonomi dan sosial.
+                  <h4 class="vm-pillar-title" data-en="Energy security &amp; power generation">Ketahanan energi industri &amp; pembangkit</h4>
+                  <p class="vm-pillar-desc" data-en="Supplying thermal coal to domestic power facilities and manufacturing plants, ensuring dependable fuel flow that keeps production running without interruption.">
+                    Menyuplai bahan bakar batubara bagi pembangkit listrik dan sentra industri nasional, memastikan pasokan energi stabil untuk menjaga kontinuitas operasional dan manufaktur.
                   </p>
                 </div>
               </div>
               <div class="vm-pillar">
                 <span class="vm-num">02</span>
                 <div>
-                  <h4 class="vm-pillar-title" data-en="Economic &amp; community empowerment">Pemberdayaan ekonomi &amp; tenaga kerja</h4>
-                  <p class="vm-pillar-desc" data-en="To create jobs and income for Indonesian communities and regional industries dependent on coal mining, actively contributing to local economic growth.">
-                    Menciptakan lapangan kerja dan pendapatan di masyarakat Indonesia serta industri regional yang bergantung pada pertambangan batubara, sehingga berkontribusi terhadap pertumbuhan ekonomi lokal.
+                  <h4 class="vm-pillar-title" data-en="Economic &amp; community empowerment">Penguatan ekonomi kawasan</h4>
+                  <p class="vm-pillar-desc" data-en="Driving local economic vitality along mining and transport corridors by creating employment and collaborating with regional logistics partners responsibly.">
+                    Mendorong perputaran ekonomi daerah di sekitar koridor logistik dan dermaga dengan membuka kesempatan kerja serta merangkul mitra usaha lokal secara berkelanjutan.
                   </p>
                 </div>
               </div>
@@ -293,14 +293,14 @@ require_once __DIR__ . '/includes/header.php';
             </div>
           </div>
           <div class="letter-body">
-            <p data-en="With sincere gratitude to Almighty God for His abundant grace and blessings, PT. Nifara Coal Trading continues to advance forward, delivering tangible contributions to the coal commodity sector in Asia and particularly in Indonesia.">
-              Puji syukur senantiasa kami panjatkan ke hadirat Tuhan Yang Maha Esa atas segala rahmat dan karunia-Nya, sehingga PT. Nifara Coal Trading dapat terus melangkah maju dan memberikan kontribusi nyata pada sektor komoditas batubara di Asia terkhususnya Indonesia.
+            <p data-en="We express our sincere gratitude to Almighty God for His blessings, allowing PT. Nifara Coal Trading to advance steadily and provide dependable energy supplies across the Indonesian and Asian coal markets.">
+              Puji syukur kami panjatkan ke hadirat Tuhan Yang Maha Esa atas limpahan rahmat-Nya, sehingga PT. Nifara Coal Trading dapat terus bertumbuh dan memberi solusi energi yang andal bagi pasar batubara nasional maupun regional Asia.
             </p>
-            <p data-en="Our business focus encompasses crucial dimensions in the Indonesian coal commodity sector, which holds a strategic role as one of the primary pillars of the national economy and as the largest supplier in global coal trade.">
-              Fokus usaha kami mencakup ruang lingkup yang krusial dalam sektor komoditas batubara Indonesia yang memegang peranan strategis sebagai salah satu pilar utama ekonomi nasional dan sekaligus penyuplai terbesar dalam perdagangan batubara global.
+            <p data-en="Indonesia stands as a central pillar in the global coal trade. Supplying this demand requires strict discipline in calorific specifications, transparent documentation, and smooth logistics from mine mouth to harbor.">
+              Sebagai salah satu pilar penggerak ekonomi nasional dan lumbung energi dunia, sektor batubara Indonesia membutuhkan mitra niaga yang disiplin. Fokus utama kami tertuju pada ketepatan spesifikasi kalori, kelancaran logistik tambang, serta kepatuhan kontrak jual-beli.
             </p>
-            <p data-en="PT. Nifara Coal Trading will continue to innovate, enhance human resource competencies, keep pace with contemporary developments, and ensure our corporate commitment from the source of production through to the end consumer.">
-              PT. Nifara Coal Trading akan terus berinovasi, meningkatkan kompetensi sumber daya manusia dan mengikuti perkembangan zaman serta memastikan komitmen perusahaan kami mulai dari sumber produksi hingga konsumen akhir.
+            <p data-en="PT. Nifara Coal Trading continually refines its supply chain management, trains dedicated operational teams, and honors every commercial agreement from origin pits directly to your industrial receiving yards.">
+              PT. Nifara Coal Trading berfokus menyempurnakan manajemen rantai pasok, memperkuat kecakapan personel di lapangan, serta menjaga integritas pengiriman mulai dari mulut tambang hingga sampai di fasilitas pabrik Anda.
             </p>
           </div>
           <div class="letter-sign">

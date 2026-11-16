@@ -16,8 +16,8 @@ $basePath = $basePath ?? '.';
         <a href="<?= $basePath ?>/index.php" class="footer-logo-link" aria-label="PT. Nifara Coal Trading Beranda">
           <img src="<?= $basePath ?>/img/logo.png" alt="PT Nifara Coal Trading" class="footer-logo" height="48" style="height: 48px; width: auto; max-height: 48px; display: block;" loading="lazy">
         </a>
-        <p class="footer-desc" data-en="PT. Nifara Coal Trading is an Indonesian licensed commodity trading enterprise specializing in high-grade thermal coal supply, integrated maritime logistics, and strategic energy partnerships for domestic and Asian markets.">
-          PT. Nifara Coal Trading adalah badan usaha perdagangan komoditas batubara resmi Indonesia yang berfokus pada keandalan pasokan batubara termal berkualitas, logistik maritim terintegrasi, dan kemitraan energi strategis untuk pasar domestik dan Asia.
+        <p class="footer-desc" data-en="PT. Nifara Coal Trading provides licensed thermal coal supplies for domestic industrial boilers and Asian export markets, backed by strict quality inspection and coordinated marine logistics.">
+          PT. Nifara Coal Trading melayani pasokan batubara termal berizin resmi untuk industri dalam negeri dan ekspor Asia, didukung pengawasan mutu terukur dan logistik maritim terpadu.
         </p>
         <div class="footer-social-bar" style="margin: 12px 0 16px; display: flex; gap: 10px;">
           <a href="https://wa.me/6281280093234" target="_blank" rel="noopener" style="color: var(--gold-primary); text-decoration: none; font-size: 14px; font-weight: 600;" aria-label="WhatsApp Official">WhatsApp Official ↗</a>
