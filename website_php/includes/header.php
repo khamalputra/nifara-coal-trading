@@ -155,9 +155,9 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
     </a>
     <div class="tools">
       <nav class="site-nav" aria-label="Menu utama" data-en-aria-label="Main menu">
-        <button class="menu-btn" id="menuBtn" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+        <button class="menu-btn" id="menuBtn" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu" aria-label="Buka menu" data-en-aria-label="Open menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          <span>Menu</span>
+          <span class="sr-only">Menu</span>
         </button>
         <ul id="site-menu" class="site-menu" popover="auto">
           <li><a class="link" href="<?= $basePath ?>/index.php#tentang" data-en="About">Tentang</a></li>

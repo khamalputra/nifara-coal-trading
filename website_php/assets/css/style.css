@@ -227,17 +227,17 @@ h2.title .gold-highlight,
 .brand { display: block; line-height: 0; flex-shrink: 0; }
 .brand img { height: 46px !important; max-height: 46px !important; width: auto !important; display: block; }
 .bar > * { flex-shrink: 0; white-space: nowrap; }
-.tools { display: flex; align-items: center; justify-content: flex-end; gap: 12px; flex-shrink: 0; }
+.tools { display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-shrink: 0; }
 .site-nav { display: flex; align-items: center; flex-shrink: 0; }
 .lang { display: inline-flex; padding: 2px; border: 1.5px solid var(--line); border-radius: 999px; flex-shrink: 0; }
 .lang button {
-  min-inline-size: 40px;
-  min-block-size: 36px;
+  min-inline-size: 36px;
+  min-block-size: 34px;
   border: 0;
   border-radius: 999px;
   background: transparent;
   color: var(--text);
-  font: 700 0.85rem/1 var(--font);
+  font: 700 0.82rem/1 var(--font);
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
@@ -247,17 +247,22 @@ h2.title .gold-highlight,
   anchor-name: --menu-btn;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-block-size: 44px;
-  padding-inline: 14px;
+  justify-content: center;
+  min-block-size: 38px;
+  min-inline-size: 38px;
+  padding: 0;
   border: 1.5px solid var(--line);
-  border-radius: 10px;
-  background: transparent;
+  border-radius: 9px;
+  background: rgba(1, 32, 52, 0.45);
   color: var(--gold);
-  font: 700 0.95rem/1 var(--font);
   cursor: pointer;
+  transition: all 0.2s ease;
 }
-.menu-btn svg { inline-size: 22px; block-size: 22px; }
+.menu-btn:hover {
+  background: rgba(245, 181, 107, 0.12);
+  border-color: var(--gold);
+}
+.menu-btn svg { inline-size: 20px; block-size: 20px; }
 .site-menu {
   position: fixed;
   inset: auto;
