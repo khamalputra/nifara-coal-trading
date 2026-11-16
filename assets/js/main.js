@@ -462,7 +462,7 @@
     var text = lines.join("\n");
     resultText.value = text;
 
-    var targetEmail = "nifaracoaltrading@gmail.com";
+    var targetEmail = "info@nifaracoaltrading.co.id";
     var subject = u("subject");
 
     // 1. Default desktop / system mailto link

@@ -95,7 +95,7 @@ function initDatabaseSchema(PDO $db, string $driver = 'mysql') {
         if ($stmt->fetch()['count'] == 0) {
             $defaultPass = password_hash('NifaraAdmin2026!', PASSWORD_BCRYPT);
             $stmt = $db->prepare("INSERT INTO admins (username, password_hash, full_name, email) VALUES (?, ?, ?, ?)");
-            $stmt->execute(['admin', $defaultPass, 'Administrator Nifara Coal', 'nifaracoaltrading@gmail.com']);
+            $stmt->execute(['admin', $defaultPass, 'Administrator Nifara Coal', 'info@nifaracoaltrading.co.id']);
         }
 
         // Seed initial articles if empty

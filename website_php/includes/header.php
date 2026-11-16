@@ -94,7 +94,7 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
         },
         "description": "Perusahaan perdagangan dan logistik batu bara berizin resmi (IUP OPK / KBLI 46710) di Indonesia.",
         "telephone": "+62-812-8009-3234",
-        "email": "nifaracoaltrading@gmail.com",
+        "email": "info@nifaracoaltrading.co.id",
         "sameAs": [
           "https://wa.me/6281280093234",
           "https://www.linkedin.com/company/nifara-coal-trading"

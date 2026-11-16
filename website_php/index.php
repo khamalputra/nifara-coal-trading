@@ -395,7 +395,7 @@ require_once __DIR__ . '/includes/header.php';
               </div>
               <div class="reach-content">
                 <dt>Email</dt>
-                <dd><span id="v-email">nifaracoaltrading@gmail.com</span><span class="copy"><button class="copy-btn" type="button" command="--copy" commandfor="v-email" aria-label="Salin email" data-en-aria-label="Copy email" data-en="Copy">Salin</button><span class="tip" role="status"></span></span></dd>
+                <dd><span id="v-email">info@nifaracoaltrading.co.id</span><span class="copy"><button class="copy-btn" type="button" command="--copy" commandfor="v-email" aria-label="Salin email" data-en-aria-label="Copy email" data-en="Copy">Salin</button><span class="tip" role="status"></span></span></dd>
               </div>
             </div>
             <div class="reach-item">
@@ -496,15 +496,15 @@ require_once __DIR__ . '/includes/header.php';
           <div class="result" id="result" hidden>
             <p id="resultNote" data-en="Your inquiry draft is prepared. Click your preferred email platform below to send:">Draf surat resmi telah disiapkan. Klik platform email yang ingin Anda gunakan untuk mengirim:</p>
             <div class="email-actions">
-              <a class="email-action-btn gmail" id="gmailLink" href="https://mail.google.com/mail/?view=cm&fs=1&to=nifaracoaltrading@gmail.com" target="_blank" rel="noopener">
+              <a class="email-action-btn gmail" id="gmailLink" href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nifaracoaltrading.co.id" target="_blank" rel="noopener">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 <span data-en="Open in Gmail">Buka di Gmail</span>
               </a>
-              <a class="email-action-btn outlook" id="outlookLink" href="https://outlook.live.com/owa/?path=/mail/action/compose&to=nifaracoaltrading@gmail.com" target="_blank" rel="noopener">
+              <a class="email-action-btn outlook" id="outlookLink" href="https://outlook.live.com/owa/?path=/mail/action/compose&to=info@nifaracoaltrading.co.id" target="_blank" rel="noopener">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 8l8 5 8-5"/></svg>
                 <span data-en="Open in Outlook">Buka di Outlook</span>
               </a>
-              <a class="email-action-btn default" id="mailLink" href="mailto:nifaracoaltrading@gmail.com">
+              <a class="email-action-btn default" id="mailLink" href="mailto:info@nifaracoaltrading.co.id">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10z"/><polyline points="2,7 12,13 22,7"/></svg>
                 <span data-en="Default Mail App">Aplikasi Email</span>
               </a>

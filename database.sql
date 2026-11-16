@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
 -- Catatan: Kredensial default wajib segera diperbarui setelah instalasi.
 -- ----------------------------------------------------------
 INSERT INTO `admins` (`id`, `username`, `password_hash`, `full_name`, `email`, `created_at`) 
-VALUES (1, 'admin', '$2y$10$w81.m8qKq/rDk2O5yK0xU.k1Lq9q9gT1Z9p9U7xU0Z1Z9p9U7xU0Z', 'Administrator Nifara Coal', 'nifaracoaltrading@gmail.com', NOW())
+VALUES (1, 'admin', '$2y$10$w81.m8qKq/rDk2O5yK0xU.k1Lq9q9gT1Z9p9U7xU0Z1Z9p9U7xU0Z', 'Administrator Nifara Coal', 'info@nifaracoaltrading.co.id', NOW())
 ON DUPLICATE KEY UPDATE `id`=`id`;
 
 -- ----------------------------------------------------------

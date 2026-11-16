@@ -13,6 +13,6 @@ PT. Nifara Coal Trading adalah badan usaha perdagangan komoditas batubara resmi 
 - SK Kemenkumham RI: Akta No. 08 / 2026
 
 ## Hubungi Kami
-- Email: nifaracoaltrading@gmail.com
+- Email: info@nifaracoaltrading.co.id
 - WhatsApp: +62 812-8009-3234
 - Alamat: Jl. Diponegoro 2, Ngalau View Garden Blok C No. 22, Payakumbuh Barat, Sumatera Barat 26226
