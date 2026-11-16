@@ -51,7 +51,7 @@ require_once __DIR__ . '/includes/header.php';
             <svg class="hero-btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
           <a class="hero-btn outline" href="#legalitas">
-            <span data-en="Verify legal &amp; licensing documents">Verifikasi dokumen legal</span>
+            <span data-en="Verify legal documents">Verifikasi dokumen legal</span>
             <svg class="hero-btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
