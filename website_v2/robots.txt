@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://nifaracoaltrading.co.id/sitemap.xml

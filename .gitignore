@@ -22,5 +22,9 @@ $RECYCLE.BIN/
 website_php/data/*.sqlite
 website_php/data/*.sqlite3
 
-# Tooling Cache
+# Tooling Cache & Reports
 .impeccable/
+IMPECCABLE_AUDIT_REPORT.md
+
+# Legacy Drafts
+website_v2/
