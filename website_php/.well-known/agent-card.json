@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "PT. Nifara Coal Trading Agent Card",
+  "version": "1.0.0",
+  "description": "Corporate agent discovery manifest for PT. Nifara Coal Trading",
+  "url": "https://nifaracoaltrading.co.id/",
+  "documentation": "https://nifaracoaltrading.co.id/AGENTS.md",
+  "contact": {
+    "name": "PT. Nifara Coal Trading",
+    "email": "nifaracoaltrading@gmail.com",
+    "telephone": "+62-812-8009-3234"
+  },
+  "capabilities": [
+    "coal-supply-inquiry",
+    "commodity-specifications",
+    "logistics-coordination"
+  ]
+}

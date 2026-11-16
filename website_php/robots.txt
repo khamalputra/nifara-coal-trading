@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /config/
+Disallow: /data/
+
+Sitemap: https://nifaracoaltrading.co.id/sitemap.xml

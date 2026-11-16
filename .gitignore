@@ -1,0 +1,26 @@
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# IDE & Editor Configurations
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment & Sensitive Files
+.env
+.env.local
+*.log
+
+# Local Development SQLite Databases
+*.sqlite
+*.sqlite3
+website_php/data/*.sqlite
+website_php/data/*.sqlite3
+
+# Tooling Cache
+.impeccable/
