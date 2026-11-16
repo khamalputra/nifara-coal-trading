@@ -19,7 +19,7 @@
 - **Head Office**: Jl. Diponegoro 2, Ngalau View Garden Blok C No. 22, Kubu Gadang, Payakumbuh Barat, Kota Payakumbuh, Sumatera Barat 26226
 - **Business Office**: Jakarta, Indonesia
 - **Official Email**: info@nifaracoaltrading.co.id
-- **Phone / WhatsApp**: +62 812-8009-3234
+- **Phone / WhatsApp**: +62 811-6600-026
 
 ## API & Structured Data Endpoints
 - **LLMS Text**: `https://nifaracoaltrading.co.id/llms.txt`

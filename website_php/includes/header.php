@@ -93,10 +93,10 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
           "height": 526
         },
         "description": "Perusahaan perdagangan dan logistik batu bara berizin resmi (IUP OPK / KBLI 46710) di Indonesia.",
-        "telephone": "+62-812-8009-3234",
+        "telephone": "+62-811-6600-026",
         "email": "info@nifaracoaltrading.co.id",
         "sameAs": [
-          "https://wa.me/6281280093234",
+          "https://wa.me/628116600026",
           "https://www.linkedin.com/company/nifara-coal-trading"
         ],
         "address": {
@@ -109,7 +109,7 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+62-812-8009-3234",
+          "telephone": "+62-811-6600-026",
           "contactType": "sales",
           "availableLanguage": ["Indonesian", "English"]
         }

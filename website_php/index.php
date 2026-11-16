@@ -404,7 +404,7 @@ require_once __DIR__ . '/includes/header.php';
               </div>
               <div class="reach-content">
                 <dt data-en="Phone">Telepon</dt>
-                <dd><span id="v-tel">081280093234</span><span class="copy"><button class="copy-btn" type="button" command="--copy" commandfor="v-tel" aria-label="Salin nomor telepon" data-en-aria-label="Copy phone number" data-en="Copy">Salin</button><span class="tip" role="status"></span></span></dd>
+                <dd><span id="v-tel">08116600026</span><span class="copy"><button class="copy-btn" type="button" command="--copy" commandfor="v-tel" aria-label="Salin nomor telepon" data-en-aria-label="Copy phone number" data-en="Copy">Salin</button><span class="tip" role="status"></span></span></dd>
               </div>
             </div>
           </dl>

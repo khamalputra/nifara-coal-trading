@@ -90,7 +90,7 @@ $basePath = isset($basePath) ? $basePath : '.';
             <a href="<?= $basePath ?>/index.php" class="btn btn-primary">Menuju Beranda</a>
             <a href="<?= $basePath ?>/berita/index.php" class="btn btn-outline">Publikasi & CSR</a>
             <a href="<?= $basePath ?>/index.php#rfq" class="btn btn-outline">Minta Penawaran</a>
-            <a href="https://wa.me/6281280093234" class="btn btn-outline" target="_blank" rel="noopener">Bantuan WhatsApp</a>
+            <a href="https://wa.me/628116600026" class="btn btn-outline" target="_blank" rel="noopener">Bantuan WhatsApp</a>
           </div>
         </div>
       </div>

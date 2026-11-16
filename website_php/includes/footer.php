@@ -20,7 +20,7 @@ $basePath = $basePath ?? '.';
           PT. Nifara Coal Trading melayani pasokan batubara termal berizin resmi untuk industri dalam negeri dan ekspor Asia, didukung pengawasan mutu terukur dan logistik maritim terpadu.
         </p>
         <div class="footer-social-bar" style="margin: 12px 0 16px; display: flex; gap: 10px;">
-          <a href="https://wa.me/6281280093234" target="_blank" rel="noopener" style="color: var(--gold-primary); text-decoration: none; font-size: 14px; font-weight: 600;" aria-label="WhatsApp Official">WhatsApp Official ↗</a>
+          <a href="https://wa.me/628116600026" target="_blank" rel="noopener" style="color: var(--gold-primary); text-decoration: none; font-size: 14px; font-weight: 600;" aria-label="WhatsApp Official">WhatsApp Official ↗</a>
           <span style="color: rgba(255,255,255,0.2);">|</span>
           <a href="https://www.linkedin.com/company/nifara-coal-trading" target="_blank" rel="noopener" style="color: var(--gold-primary); text-decoration: none; font-size: 14px; font-weight: 600;" aria-label="LinkedIn">LinkedIn ↗</a>
         </div>
@@ -94,7 +94,7 @@ $basePath = $basePath ?? '.';
           </li>
           <li>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <a href="tel:081280093234">+62 812-8009-3234</a>
+            <a href="tel:08116600026">+62 811-6600-026</a>
           </li>
         </ul>
       </div>
@@ -174,7 +174,7 @@ $basePath = $basePath ?? '.';
     <span class="float-tooltip" data-en="Back to top">Ke atas</span>
   </button>
   
-  <a href="https://wa.me/6281280093234?text=Halo%20PT.%20Nifara%20Coal%20Trading,%20saya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20mengenai%20penawaran%20batubara." 
+  <a href="https://wa.me/628116600026?text=Halo%20PT.%20Nifara%20Coal%20Trading,%20saya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20mengenai%20penawaran%20batubara." 
      target="_blank" 
      rel="noopener" 
      class="float-btn whatsapp" 
