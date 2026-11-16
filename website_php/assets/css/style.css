@@ -1934,7 +1934,9 @@ body.is-lang-switching .field textarea::placeholder {
   height: 14px;
 }
 .idcard-footer span {
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.35;
+  word-break: break-word;
 }
 
 /* Lightbox Dialog */
@@ -3030,11 +3032,11 @@ footer.site-footer::before {
   .specs div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .viewer-info .specs div { grid-template-columns: minmax(0, 1fr); }
   .viewer-info { padding: 22px 18px; }
-  .docs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .doc .meta { padding: 12px; }
+  .docs { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .doc .meta { padding: 16px; }
 }
-@media (max-width: 400px) {
-  .docs { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 581px) and (max-width: 860px) {
+  .docs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 }
 /* Motion is opt-in. Reduced-motion users get the same final state with no movement.
    Colour and opacity changes stay on everywhere. */
