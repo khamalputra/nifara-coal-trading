@@ -256,8 +256,8 @@ require_once __DIR__ . '/includes/header.php';
           <article class="leader-card">
             <div class="leader-card-frame">
               <div class="leader-photo-wrap">
-                <img class="leader-bg-img" src="img/niha.jpg" alt="" aria-hidden="true" width="400" height="432" style="max-width: 100%; height: auto;" loading="lazy">
-                <img class="leader-cutout-img" src="img/niha-cutout.png" alt="Niha Meisya Maharani, Komisaris" data-en-alt="Niha Meisya Maharani, Commissioner" width="400" height="432" style="max-width: 100%; height: auto;" loading="lazy">
+                <img class="leader-bg-img" src="img/niha.jpg" alt="" aria-hidden="true" width="400" height="432" loading="lazy">
+                <img class="leader-cutout-img" src="img/niha-cutout.png" alt="Niha Meisya Maharani, Komisaris" data-en-alt="Niha Meisya Maharani, Commissioner" width="400" height="432" loading="lazy">
               </div>
               <div class="leader-info">
                 <h3 class="leader-name">Niha Meisya Maharani</h3>
@@ -269,8 +269,8 @@ require_once __DIR__ . '/includes/header.php';
           <article class="leader-card">
             <div class="leader-card-frame">
               <div class="leader-photo-wrap">
-                <img class="leader-bg-img" src="img/rizki.jpg" alt="" aria-hidden="true" width="400" height="432" style="max-width: 100%; height: auto;" loading="lazy">
-                <img class="leader-cutout-img" src="img/rizki-cutout.png" alt="Rizki Abdian Putra, Direktur" data-en-alt="Rizki Abdian Putra, Director" width="400" height="432" style="max-width: 100%; height: auto;" loading="lazy">
+                <img class="leader-bg-img" src="img/rizki.jpg" alt="" aria-hidden="true" width="400" height="432" loading="lazy">
+                <img class="leader-cutout-img" src="img/rizki-cutout.png" alt="Rizki Abdian Putra, Direktur" data-en-alt="Rizki Abdian Putra, Director" width="400" height="432" loading="lazy">
               </div>
               <div class="leader-info">
                 <h3 class="leader-name">Rizki Abdian Putra</h3>
