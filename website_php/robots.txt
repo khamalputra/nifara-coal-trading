@@ -4,4 +4,23 @@ Disallow: /admin/
 Disallow: /config/
 Disallow: /data/
 
+# AI & LLM Search Crawlers (OpenAI, Google Gemini, Anthropic Claude, Perplexity)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://nifaracoaltrading.co.id/sitemap.xml
