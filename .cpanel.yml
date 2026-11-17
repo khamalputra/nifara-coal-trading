@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/nifa8211/public_html
+    - export DEPLOYPATH=$HOME/public_html
     - /bin/cp -r website_php/* $DEPLOYPATH/
     - /bin/cp website_php/.htaccess $DEPLOYPATH/
     - /bin/cp -r website_php/.well-known $DEPLOYPATH/
