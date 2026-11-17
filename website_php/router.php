@@ -12,6 +12,10 @@ if ($uri === '/berita/index.php') {
     header('Location: /berita/', true, 301);
     exit;
 }
+if ($uri === '/berita/detail.php' && !empty($_GET['slug'])) {
+    header('Location: /berita/' . urlencode($_GET['slug']), true, 301);
+    exit;
+}
 
 // 2. Static file check
 if ($uri !== '/' && file_exists($file) && !is_dir($file)) {
@@ -31,15 +35,7 @@ if (is_dir($file) && file_exists($file . '/index.php')) {
     return true;
 }
 
-// 4. Canonical redirect: /index.php -> /
-if ($uri === '/index.php') {
-    header('Location: /', true, 301);
-    exit;
-}
-if ($uri === '/berita/index.php') {
-    header('Location: /berita/', true, 301);
-    exit;
-}
+// 4. Root index
 if ($uri === '/') {
     require __DIR__ . '/index.php';
     return true;

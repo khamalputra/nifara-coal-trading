@@ -379,7 +379,7 @@ require_once __DIR__ . '/includes/header.php';
         <?php if (!empty($articles)): ?>
           <?php foreach ($articles as $art): ?>
             <article class="news-card">
-              <a href="berita/detail.php?slug=<?= urlencode($art['slug']) ?>" class="news-thumb-wrap">
+              <a href="berita/<?= urlencode($art['slug']) ?>" class="news-thumb-wrap">
                 <img src="<?= htmlspecialchars(!empty($art['image']) ? $art['image'] : 'img/hero.jpg') ?>" alt="<?= htmlspecialchars($art['title']) ?>" width="400" height="267" style="max-width: 100%; height: auto;" loading="lazy">
                 <span class="news-tag <?= $art['category'] === 'CSR' ? 'csr' : '' ?>"><?= htmlspecialchars($art['category']) ?></span>
               </a>
@@ -389,10 +389,10 @@ require_once __DIR__ . '/includes/header.php';
                   <span><?= date('d M Y', strtotime($art['created_at'])) ?></span>
                 </div>
                 <h3 class="news-title">
-                  <a href="berita/detail.php?slug=<?= urlencode($art['slug']) ?>"><?= htmlspecialchars(mb_strimwidth($art['title'], 0, 58, '...')) ?></a>
+                  <a href="berita/<?= urlencode($art['slug']) ?>"><?= htmlspecialchars(mb_strimwidth($art['title'], 0, 58, '...')) ?></a>
                 </h3>
                 <p class="news-snippet"><?= htmlspecialchars($art['excerpt'] ?? substr(strip_tags($art['content']), 0, 120) . '...') ?></p>
-                <a href="berita/detail.php?slug=<?= urlencode($art['slug']) ?>" class="news-readmore" aria-label="Baca selengkapnya mengenai <?= htmlspecialchars($art['title']) ?>">
+                <a href="berita/<?= urlencode($art['slug']) ?>" class="news-readmore" aria-label="Baca selengkapnya mengenai <?= htmlspecialchars($art['title']) ?>">
                   <span data-en="Read full story">Baca selengkapnya</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
                 </a>

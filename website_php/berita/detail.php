@@ -30,8 +30,18 @@ if (!$article) {
 // Increment views counter
 $db->prepare("UPDATE articles SET views = views + 1 WHERE id = ?")->execute([$article['id']]);
 
-// Meta tags & Canonical
-$pageTitle = $article['title'] . ' | PT. Nifara Coal Trading';
+// Meta tags & Canonical (SEO title strictly <= 68 characters for Bing & Google)
+$brandSuffix = ' | Nifara Coal';
+$maxTitleLen = 68 - strlen($brandSuffix);
+$cleanTitle = $article['title'];
+if (mb_strlen($cleanTitle) > $maxTitleLen) {
+    $cleanTitle = mb_substr($cleanTitle, 0, $maxTitleLen);
+    $lastSpace = mb_strrpos($cleanTitle, ' ');
+    if ($lastSpace !== false) {
+        $cleanTitle = mb_substr($cleanTitle, 0, $lastSpace);
+    }
+}
+$pageTitle = $cleanTitle . $brandSuffix;
 $pageDesc = $article['excerpt'];
 $canonicalUrl = 'https://nifaracoaltrading.co.id/berita/' . $article['slug'];
 $artDate = date('d F Y', strtotime($article['created_at']));
@@ -117,7 +127,7 @@ include __DIR__ . '/../includes/header.php';
 
       <!-- Share & Back Actions -->
       <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-        <a href="index.php" class="btn solid">&larr; Kembali ke Arsip Berita</a>
+        <a href="/berita/" class="btn solid">&larr; Kembali ke Arsip Berita</a>
         <a href="https://wa.me/?text=<?= urlencode($article['title'] . ' - Baca selengkapnya di PT. Nifara Coal Trading') ?>" target="_blank" rel="noopener" class="btn">
           Bagikan via WhatsApp
         </a>
@@ -132,7 +142,7 @@ include __DIR__ . '/../includes/header.php';
             <?php foreach ($relatedArticles as $rel): ?>
               <?php $relImg = !empty($rel['image']) ? $basePath . '/' . ltrim($rel['image'], '/') : $basePath . '/img/hero.jpg'; ?>
               <article class="news-card">
-                <a href="detail.php?slug=<?= urlencode($rel['slug']) ?>" class="news-thumb-wrap">
+                <a href="/berita/<?= urlencode($rel['slug']) ?>" class="news-thumb-wrap">
                   <img src="<?= htmlspecialchars($relImg) ?>" alt="<?= htmlspecialchars($rel['title']) ?>" loading="lazy">
                   <span class="news-tag <?= $rel['category'] === 'CSR' ? 'csr' : '' ?>"><?= htmlspecialchars($rel['category']) ?></span>
                 </a>
@@ -141,9 +151,9 @@ include __DIR__ . '/../includes/header.php';
                     <span><?= date('d M Y', strtotime($rel['created_at'])) ?></span>
                   </div>
                   <h4 class="news-title">
-                    <a href="detail.php?slug=<?= urlencode($rel['slug']) ?>"><?= htmlspecialchars($rel['title']) ?></a>
+                    <a href="/berita/<?= urlencode($rel['slug']) ?>"><?= htmlspecialchars($rel['title']) ?></a>
                   </h4>
-                  <a href="detail.php?slug=<?= urlencode($rel['slug']) ?>" class="news-readmore">
+                  <a href="/berita/<?= urlencode($rel['slug']) ?>" class="news-readmore">
                     <span>Baca selengkapnya &rarr;</span>
                   </a>
                 </div>

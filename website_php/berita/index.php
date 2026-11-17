@@ -63,9 +63,9 @@ include __DIR__ . '/../includes/header.php';
 
       <!-- Category Filter Pills -->
       <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center;">
-        <a href="index.php" class="btn <?= ($category === 'Semua' && empty($search)) ? 'solid' : '' ?>" style="font-size: 0.85rem; padding: 8px 18px;">Semua Publikasi</a>
+        <a href="/berita/" class="btn <?= ($category === 'Semua' && empty($search)) ? 'solid' : '' ?>" style="font-size: 0.85rem; padding: 8px 18px;">Semua Publikasi</a>
         <?php foreach ($categories as $cat): ?>
-          <a href="index.php?kategori=<?= urlencode($cat) ?>" class="btn <?= ($category === $cat) ? 'solid' : '' ?>" style="font-size: 0.85rem; padding: 8px 18px;">
+          <a href="/berita/?kategori=<?= urlencode($cat) ?>" class="btn <?= ($category === $cat) ? 'solid' : '' ?>" style="font-size: 0.85rem; padding: 8px 18px;">
             <?= htmlspecialchars($cat) ?>
           </a>
         <?php endforeach; ?>
@@ -81,7 +81,7 @@ include __DIR__ . '/../includes/header.php';
         <div style="text-align: center; padding: 60px 20px; background: rgba(1, 32, 52, 0.6); border: 1px solid var(--line); border-radius: 12px;">
           <h3 style="color: var(--paper); margin-bottom: 8px;">Belum Ada Publikasi</h3>
           <p style="color: var(--muted); margin-bottom: 24px;">Tidak ada artikel yang cocok dengan filter atau kriteria pencarian Anda.</p>
-          <a href="index.php" class="btn solid">Lihat Semua Artikel</a>
+          <a href="/berita/" class="btn solid">Lihat Semua Artikel</a>
         </div>
       <?php else: ?>
         <div class="news-grid">
@@ -90,7 +90,7 @@ include __DIR__ . '/../includes/header.php';
               $artImg = !empty($art['image']) ? $basePath . '/' . ltrim($art['image'], '/') : $basePath . '/img/hero.jpg';
             ?>
             <article class="news-card">
-              <a href="detail.php?slug=<?= urlencode($art['slug']) ?>" class="news-thumb-wrap">
+              <a href="/berita/<?= urlencode($art['slug']) ?>" class="news-thumb-wrap">
                 <img src="<?= htmlspecialchars($artImg) ?>" alt="<?= htmlspecialchars($art['title']) ?>" loading="lazy">
                 <span class="news-tag <?= $art['category'] === 'CSR' ? 'csr' : '' ?>"><?= htmlspecialchars($art['category']) ?></span>
               </a>
@@ -102,10 +102,10 @@ include __DIR__ . '/../includes/header.php';
                   <span><?= htmlspecialchars($art['author'] ?? 'PT. Nifara Coal Trading') ?></span>
                 </div>
                 <h2 class="news-title" style="font-size: 1.18rem;">
-                  <a href="detail.php?slug=<?= urlencode($art['slug']) ?>"><?= htmlspecialchars($art['title']) ?></a>
+                  <a href="/berita/<?= urlencode($art['slug']) ?>"><?= htmlspecialchars($art['title']) ?></a>
                 </h2>
                 <p class="news-snippet"><?= htmlspecialchars($art['excerpt'] ?? substr(strip_tags($art['content']), 0, 130) . '...') ?></p>
-                <a href="detail.php?slug=<?= urlencode($art['slug']) ?>" class="news-readmore">
+                <a href="/berita/<?= urlencode($art['slug']) ?>" class="news-readmore">
                   <span>Baca artikel lengkap</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
                 </a>

@@ -20,6 +20,10 @@
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /berita/index\.php [NC]
   RewriteRule ^berita/index\.php$ https://%{HTTP_HOST}/berita/ [R=301,L]
 
+  # Redirect legacy /berita/detail.php?slug=xxx to clean /berita/xxx
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /berita/detail\.php\?slug=([a-zA-Z0-9_-]+) [NC]
+  RewriteRule ^berita/detail\.php$ https://%{HTTP_HOST}/berita/%1? [R=301,L]
+
   # Pretty URL for articles: /berita/judul-slug -> /berita/detail.php?slug=judul-slug
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
