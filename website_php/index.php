@@ -256,8 +256,8 @@ require_once __DIR__ . '/includes/header.php';
           <article class="leader-card">
             <div class="leader-card-frame">
               <div class="leader-photo-wrap">
-                <img class="leader-bg-img" src="img/niha.jpg" alt="" aria-hidden="true" width="400" height="432" loading="lazy">
-                <img class="leader-cutout-img" src="img/niha-cutout.png" alt="Niha Meisya Maharani, Komisaris" data-en-alt="Niha Meisya Maharani, Commissioner" width="400" height="432" loading="lazy">
+                <img class="leader-bg-img" src="img/niha.jpg" alt="Latar foto Niha Meisya Maharani, Komisaris PT Nifara Coal Trading" data-en-alt="Background portrait of Niha Meisya Maharani, Commissioner" width="400" height="432" loading="lazy">
+                <img class="leader-cutout-img" src="img/niha-cutout.png" alt="Niha Meisya Maharani, Komisaris PT Nifara Coal Trading" data-en-alt="Niha Meisya Maharani, Commissioner of PT Nifara Coal Trading" width="400" height="432" loading="lazy">
               </div>
               <div class="leader-info">
                 <h3 class="leader-name">Niha Meisya Maharani</h3>
@@ -269,8 +269,8 @@ require_once __DIR__ . '/includes/header.php';
           <article class="leader-card">
             <div class="leader-card-frame">
               <div class="leader-photo-wrap">
-                <img class="leader-bg-img" src="img/rizki.jpg" alt="" aria-hidden="true" width="400" height="432" loading="lazy">
-                <img class="leader-cutout-img" src="img/rizki-cutout.png" alt="Rizki Abdian Putra, Direktur" data-en-alt="Rizki Abdian Putra, Director" width="400" height="432" loading="lazy">
+                <img class="leader-bg-img" src="img/rizki.jpg" alt="Latar foto Rizki Abdian Putra, Direktur PT Nifara Coal Trading" data-en-alt="Background portrait of Rizki Abdian Putra, Director" width="400" height="432" loading="lazy">
+                <img class="leader-cutout-img" src="img/rizki-cutout.png" alt="Rizki Abdian Putra, Direktur PT Nifara Coal Trading" data-en-alt="Rizki Abdian Putra, Director of PT Nifara Coal Trading" width="400" height="432" loading="lazy">
               </div>
               <div class="leader-info">
                 <h3 class="leader-name">Rizki Abdian Putra</h3>
