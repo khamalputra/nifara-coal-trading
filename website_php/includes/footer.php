@@ -5,6 +5,7 @@
  */
 
 $basePath = $basePath ?? '.';
+$homePrefix = ($basePath === '.') ? '' : '/';
 ?>
 
 <footer class="site-footer">
@@ -13,7 +14,7 @@ $basePath = $basePath ?? '.';
     <div class="footer-grid">
       <!-- Col 1: Profil & Identitas Perusahaan -->
       <div class="footer-col footer-about">
-        <a href="<?= $basePath ?>/index.php" class="footer-logo-link" aria-label="PT. Nifara Coal Trading Beranda">
+        <a href="<?= ($basePath === '.' ? '#hero' : '/') ?>" class="footer-logo-link" aria-label="PT. Nifara Coal Trading Beranda">
           <picture>
             <source srcset="<?= $basePath ?>/img/logo.webp" type="image/webp">
             <img src="<?= $basePath ?>/img/logo.png" alt="PT Nifara Coal Trading" class="footer-logo" width="188" height="48" style="height: 48px; width: auto; max-height: 48px; display: block;" loading="lazy">
@@ -33,15 +34,15 @@ $basePath = $basePath ?? '.';
             <span data-en="Verified Enterprise Legalities">Legalitas Badan Usaha Terdaftar</span>
           </div>
           <div class="cred-card-grid">
-            <a href="<?= $basePath ?>/index.php#legalitas" class="cred-pill" title="Nomor Induk Berusaha">
+            <a href="<?= $homePrefix ?>#legalitas" class="cred-pill" title="Nomor Induk Berusaha">
               <span class="cred-k">NIB</span>
               <span class="cred-v">3108260031993</span>
             </a>
-            <a href="<?= $basePath ?>/index.php#legalitas" class="cred-pill" title="Klasifikasi Baku Lapangan Usaha Indonesia">
+            <a href="<?= $homePrefix ?>#legalitas" class="cred-pill" title="Klasifikasi Baku Lapangan Usaha Indonesia">
               <span class="cred-k">KBLI</span>
               <span class="cred-v">46710</span>
             </a>
-            <a href="<?= $basePath ?>/index.php#legalitas" class="cred-pill cred-pill-wide" title="Pengesahan Badan Hukum Menkumham RI">
+            <a href="<?= $homePrefix ?>#legalitas" class="cred-pill cred-pill-wide" title="Pengesahan Badan Hukum Menkumham RI">
               <span class="cred-k" data-en="Law Ministry Approval">SK Kemenkumham RI</span>
               <span class="cred-v" data-en="Deed No. 08 / 2026">Akta No. 08 / 2026</span>
             </a>
@@ -53,14 +54,14 @@ $basePath = $basePath ?? '.';
       <div class="footer-col footer-nav">
         <h3 class="footer-col-title" data-en="Quick Links">Navigasi Halaman</h3>
         <ul class="footer-links">
-          <li><a href="<?= $basePath ?>/index.php#tentang" data-en="About Us">Tentang Kami</a></li>
-          <li><a href="<?= $basePath ?>/index.php#rantai" data-en="Value Chain">Rantai Nilai Pasokan</a></li>
-          <li><a href="<?= $basePath ?>/index.php#visi" data-en="Vision &amp; Mission">Visi &amp; Misi</a></li>
-          <li><a href="<?= $basePath ?>/index.php#pimpinan" data-en="Leadership">Pimpinan Perusahaan</a></li>
-          <li><a href="<?= $basePath ?>/index.php#legalitas" data-en="Official Legalities">Legalitas &amp; Perizinan</a></li>
+          <li><a href="<?= $homePrefix ?>#tentang" data-en="About Us">Tentang Kami</a></li>
+          <li><a href="<?= $homePrefix ?>#rantai" data-en="Value Chain">Rantai Nilai Pasokan</a></li>
+          <li><a href="<?= $homePrefix ?>#visi" data-en="Vision &amp; Mission">Visi &amp; Misi</a></li>
+          <li><a href="<?= $homePrefix ?>#pimpinan" data-en="Leadership">Pimpinan Perusahaan</a></li>
+          <li><a href="<?= $homePrefix ?>#legalitas" data-en="Official Legalities">Legalitas &amp; Perizinan</a></li>
           <li><a href="<?= $basePath ?>/berita/" data-en="News &amp; CSR">Kabar Berita &amp; CSR</a></li>
-          <li><a href="<?= $basePath ?>/index.php#legalitas" data-en="Privacy Policy &amp; Terms">Kebijakan Privasi &amp; Kepatuhan</a></li>
-          <li><a href="<?= $basePath ?>/index.php#kontak" data-en="Contact Us">Hubungi Kami</a></li>
+          <li><a href="<?= $homePrefix ?>#legalitas" data-en="Privacy Policy &amp; Terms">Kebijakan Privasi &amp; Kepatuhan</a></li>
+          <li><a href="<?= $homePrefix ?>#kontak" data-en="Contact Us">Hubungi Kami</a></li>
         </ul>
       </div>
 
@@ -68,12 +69,12 @@ $basePath = $basePath ?? '.';
       <div class="footer-col footer-services">
         <h3 class="footer-col-title" data-en="Services &amp; Supply">Layanan &amp; Komoditas</h3>
         <ul class="footer-links">
-          <li><a href="<?= $basePath ?>/index.php#kontak" data-en="Power Plant (PLTU) Supply">Pasokan Batubara PLTU</a></li>
-          <li><a href="<?= $basePath ?>/index.php#kontak" data-en="Industrial Steam Coal">Batubara Industri &amp; Pabrik</a></li>
-          <li><a href="<?= $basePath ?>/index.php#rantai" data-en="Barge &amp; Vessel Logistics">Logistik Tongkang &amp; Kapal</a></li>
-          <li><a href="<?= $basePath ?>/index.php#legalitas" data-en="Production Mining IUP Partners">Kemitraan IUP-OP Tambang</a></li>
-          <li><a href="<?= $basePath ?>/index.php#kontak" data-en="Custom GAR Specification">Konsultasi Kalori &amp; GAR</a></li>
-          <li><a href="<?= $basePath ?>/index.php#rantai" data-en="Domestic &amp; Export Market">Perdagangan Domestik &amp; Ekspor</a></li>
+          <li><a href="<?= $homePrefix ?>#kontak" data-en="Power Plant (PLTU) Supply">Pasokan Batubara PLTU</a></li>
+          <li><a href="<?= $homePrefix ?>#kontak" data-en="Industrial Steam Coal">Batubara Industri &amp; Pabrik</a></li>
+          <li><a href="<?= $homePrefix ?>#rantai" data-en="Barge &amp; Vessel Logistics">Logistik Tongkang &amp; Kapal</a></li>
+          <li><a href="<?= $homePrefix ?>#legalitas" data-en="Production Mining IUP Partners">Kemitraan IUP-OP Tambang</a></li>
+          <li><a href="<?= $homePrefix ?>#kontak" data-en="Custom GAR Specification">Konsultasi Kalori &amp; GAR</a></li>
+          <li><a href="<?= $homePrefix ?>#rantai" data-en="Domestic &amp; Export Market">Perdagangan Domestik &amp; Ekspor</a></li>
         </ul>
       </div>
 

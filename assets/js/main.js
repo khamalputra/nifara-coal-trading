@@ -147,11 +147,8 @@
   var brandLogo = $(".brand");
   if (brandLogo) {
     brandLogo.addEventListener("click", function (e) {
-      var path = window.location.pathname;
-      var isHome = path.endsWith("index.php") ||
-                   path.endsWith("index.html") ||
-                   path.endsWith("/") ||
-                   path === "";
+      var normPath = window.location.pathname.replace(/\/+$/, "");
+      var isHome = (normPath === "" || normPath === "/index.php" || normPath === "/index.html");
       if (isHome) {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: "smooth" });

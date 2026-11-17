@@ -147,12 +147,13 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
 <a href="#main" class="skip-to-content" data-en="Skip to main content">Lewati ke konten utama</a>
 
 <!-- Top Scroll Progress Indicator -->
+<?php $homePrefix = (isset($basePath) && $basePath === '.') ? '' : '/'; ?>
 <div class="motion-scroll-progress" id="motionScrollProgress"></div>
 
 <!-- Header Sticky -->
 <header class="site-header" id="top">
   <div class="wrap bar" id="headerInner">
-    <a class="brand" id="brandLogo" href="<?= $basePath ?>/index.php#hero" aria-label="PT. Nifara Coal Trading" data-en-aria-label="PT. Nifara Coal Trading">
+    <a class="brand" id="brandLogo" href="<?= (isset($basePath) && $basePath === '.') ? '#hero' : '/' ?>" aria-label="PT. Nifara Coal Trading" data-en-aria-label="PT. Nifara Coal Trading">
       <picture>
         <source srcset="<?= $basePath ?>/img/logo.webp" type="image/webp">
         <img src="<?= $basePath ?>/img/logo.png" alt="PT. Nifara Coal Trading Logo" width="180" height="46" style="height: 46px; width: auto; max-height: 46px; display: block;">
@@ -165,13 +166,13 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
           <span class="sr-only">Menu</span>
         </button>
         <ul id="site-menu" class="site-menu" popover="auto">
-          <li><a class="link" href="<?= $basePath ?>/index.php#tentang" data-en="About">Tentang</a></li>
-          <li><a class="link" href="<?= $basePath ?>/index.php#rantai" data-en="Value chain">Rantai nilai</a></li>
-          <li><a class="link" href="<?= $basePath ?>/index.php#visi" data-en="Vision and mission">Visi dan misi</a></li>
-          <li><a class="link" href="<?= $basePath ?>/index.php#pimpinan" data-en="Leadership">Pimpinan</a></li>
-          <li><a class="link" href="<?= $basePath ?>/index.php#legalitas" data-en="Legal documents">Legalitas</a></li>
-          <li><a class="link" href="<?= $basePath ?>/index.php#berita" data-en="News & CSR">Berita & CSR</a></li>
-          <li><a class="btn solid" href="<?= $basePath ?>/index.php#kontak" data-en="Contact us">Hubungi kami</a></li>
+          <li><a class="link" href="<?= $homePrefix ?>#tentang" data-en="About">Tentang</a></li>
+          <li><a class="link" href="<?= $homePrefix ?>#rantai" data-en="Value chain">Rantai nilai</a></li>
+          <li><a class="link" href="<?= $homePrefix ?>#visi" data-en="Vision and mission">Visi dan misi</a></li>
+          <li><a class="link" href="<?= $homePrefix ?>#pimpinan" data-en="Leadership">Pimpinan</a></li>
+          <li><a class="link" href="<?= $homePrefix ?>#legalitas" data-en="Legal documents">Legalitas</a></li>
+          <li><a class="link" href="<?= $basePath ?>/berita/" data-en="News & CSR">Berita & CSR</a></li>
+          <li><a class="btn solid" href="<?= $homePrefix ?>#kontak" data-en="Contact us">Hubungi kami</a></li>
         </ul>
       </nav>
       <div class="lang" role="group" aria-label="Pilihan Bahasa / Language Selection">
