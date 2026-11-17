@@ -90,12 +90,16 @@ function initDatabaseSchema(PDO $db, string $driver = 'mysql') {
             );
         ");
 
-        // Seed default admin if empty
+        // Seed default admin only if credentials are provided via environment variables
         $stmt = $db->query("SELECT COUNT(*) as count FROM admins");
         if ($stmt->fetch()['count'] == 0) {
-            $defaultPass = password_hash('NifaraAdmin2026!', PASSWORD_BCRYPT);
-            $stmt = $db->prepare("INSERT INTO admins (username, password_hash, full_name, email) VALUES (?, ?, ?, ?)");
-            $stmt->execute(['admin', $defaultPass, 'Administrator Nifara Coal', 'info@nifaracoaltrading.co.id']);
+            $envUser = getenv('ADMIN_USER') ?: 'admin';
+            $envPass = getenv('ADMIN_PASS');
+            if (!empty($envPass)) {
+                $defaultPass = password_hash($envPass, PASSWORD_BCRYPT);
+                $stmt = $db->prepare("INSERT INTO admins (username, password_hash, full_name, email) VALUES (?, ?, ?, ?)");
+                $stmt->execute([$envUser, $defaultPass, 'Administrator Nifara Coal', 'info@nifaracoaltrading.co.id']);
+            }
         }
 
         // Seed initial articles if empty

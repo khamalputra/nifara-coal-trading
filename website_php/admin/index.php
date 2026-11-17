@@ -30,12 +30,40 @@ if (isset($_SESSION['login_failed_attempts']) && $_SESSION['login_failed_attempt
     }
 }
 
+$db = getDB();
+$adminCountQuery = $db->query("SELECT COUNT(*) as count FROM admins");
+$hasAdmins = ($adminCountQuery && (int)$adminCountQuery->fetch()['count'] > 0);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$isLockedOut) {
     $action = $_POST['action'] ?? 'login';
     $token = $_POST['csrf_token'] ?? '';
     
     if (!verifyCSRFToken($token)) {
         $error = 'Validasi sesi keamanan kadaluarsa. Silakan muat ulang halaman dan coba lagi.';
+    } elseif (!$hasAdmins && $action === 'initial_setup') {
+        $username = trim($_POST['username'] ?? '');
+        $password = $_POST['password'] ?? '';
+        $fullName = trim($_POST['full_name'] ?? 'Administrator Nifara Coal');
+        $email = trim($_POST['email'] ?? 'info@nifaracoaltrading.co.id');
+
+        if (empty($username) || empty($password)) {
+            $error = 'Nama pengguna dan kata sandi wajib diisi.';
+        } elseif (strlen($password) < 8) {
+            $error = 'Kata sandi minimal harus 8 karakter.';
+        } else {
+            $hash = password_hash($password, PASSWORD_BCRYPT);
+            $stmt = $db->prepare("INSERT INTO admins (username, password_hash, full_name, email) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$username, $hash, $fullName, $email]);
+
+            session_regenerate_id(true);
+            $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_id'] = $db->lastInsertId();
+            $_SESSION['admin_user'] = $username;
+            $_SESSION['admin_name'] = $fullName;
+
+            header("Location: dashboard.php");
+            exit;
+        }
     } elseif ($action === 'reset_request') {
         $resetAccount = trim($_POST['reset_account'] ?? '');
         if (empty($resetAccount)) {
@@ -562,6 +590,86 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$isLockedOut) {
       <p class="login-sub">Portal Administrasi Berita, CSR &amp; Operasional</p>
     </div>
 
+    <?php if (!$hasAdmins): ?>
+      <div class="login-alert" style="background: rgba(245, 181, 107, 0.12); border-color: rgba(245, 181, 107, 0.35); color: #f5b56b; margin-top: 18px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <div><strong>Inisialisasi Sistem:</strong> Belum ada akun administrator terdaftar. Silakan buat akun Administrator Utama di bawah ini.</div>
+      </div>
+
+      <?php if (!empty($error)): ?>
+        <div class="login-alert" role="alert">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px; color: #fb7185;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <div><?= htmlspecialchars($error) ?></div>
+        </div>
+      <?php endif; ?>
+
+      <form method="POST" action="index.php" autocomplete="on">
+        <input type="hidden" name="action" value="initial_setup">
+        <input type="hidden" name="csrf_token" value="<?= generateCSRFToken() ?>">
+
+        <div class="field-group">
+          <label for="fullName" class="field-label">Nama Lengkap</label>
+          <div class="input-shell">
+            <span class="input-shell-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </span>
+            <input type="text" id="fullName" name="full_name" class="login-input gold-accent-border" placeholder="Contoh: Administrator Nifara" required>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="email" class="field-label">Alamat Email</label>
+          <div class="input-shell">
+            <span class="input-shell-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </span>
+            <input type="email" id="email" name="email" class="login-input gold-accent-border" placeholder="admin@nifaracoaltrading.co.id" required>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="username" class="field-label">Nama Pengguna (Username)</label>
+          <div class="input-shell">
+            <span class="input-shell-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </span>
+            <input type="text" id="username" name="username" class="login-input gold-accent-border" placeholder="Masukkan username" required autofocus autocomplete="username">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="password" class="field-label">Kata Sandi Baru (Min. 8 Karakter)</label>
+          <div class="input-shell">
+            <span class="input-shell-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </span>
+            <input type="password" id="password" name="password" class="login-input has-toggle" placeholder="Masukkan kata sandi baru" required autocomplete="new-password">
+            <button type="button" id="togglePasswordBtn" class="pwd-toggle-btn" aria-label="Tampilkan atau sembunyikan kata sandi">
+              <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-login-submit">
+          <span>Buat Akun Administrator &amp; Masuk</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </form>
+    <?php else: ?>
     <!-- Tab Bar: Login vs Reset Password -->
     <div class="auth-tab-bar" role="tablist">
       <button type="button" class="auth-tab-btn active" id="tabLoginBtn" role="tab" aria-selected="true" aria-controls="loginPanel">
@@ -688,6 +796,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$isLockedOut) {
         </button>
       </form>
     </div>
+    <?php endif; ?>
 
     <!-- Common Footer -->
     <div class="login-footer">

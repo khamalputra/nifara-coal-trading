@@ -16,6 +16,16 @@ $RECYCLE.BIN/
 .env.local
 *.log
 
+# Compressed Archives & Backups
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+*.backup
+
 # Local Development SQLite Databases
 *.sqlite
 *.sqlite3
