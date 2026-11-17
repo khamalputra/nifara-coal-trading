@@ -7,79 +7,83 @@ Situs resmi dan sistem manajemen konten (CMS) PT. Nifara Coal Trading, perusahaa
 ## Struktur Direktori
 
 ```text
-├── website_php/              # Aplikasi web utama (target root public_html cPanel)
-│   ├── admin/                # Portal CMS Admin (Dashboard, Kelola Berita, Akun)
-│   ├── assets/               # File CSS, JavaScript, dan vendor library
+├── website_php/              # Aplikasi web utama (target root web server / public_html)
+│   ├── admin/                # Portal CMS Admin (Dashboard, Kelola Publikasi & CSR)
+│   ├── assets/               # Aset CSS, JavaScript, dan vendor library
 │   ├── berita/               # Modul halaman indeks dan artikel berita publik
 │   ├── config/               # Konfigurasi database & autentikasi sesi
-│   │   ├── database.php      # Koneksi database (Auto-detect MySQL cPanel / SQLite)
-│   │   └── auth.php          # Session guard & middleware keamanan
-│   ├── data/                 # Penyimpanan data lokal (dilindungi .htaccess)
-│   ├── img/                  # Aset gambar, logo, ikon, dan media profil
+│   │   ├── database.php      # Koneksi database (Auto-detect MySQL / Portable SQLite)
+│   │   └── auth.php          # Session guard, proteksi CSRF & sanitizer konten
+│   ├── data/                 # Penyimpanan database lokal (dilindungi .htaccess)
+│   ├── img/                  # Aset gambar, logo perusahaan, dan media profil
 │   ├── includes/             # Template parsial modular (header.php, footer.php)
 │   ├── uploads/              # Direktori upload media artikel/berita
 │   ├── .htaccess             # Aturan rewrite, security headers, dan proteksi berkas
 │   ├── 404.php               # Halaman error responsif
 │   ├── index.php             # Beranda utama korporat
 │   ├── robots.txt            # Aturan perayapan mesin pencari (SEO)
-│   ├── sitemap.xml           # Peta situs terindeks Google
+│   ├── sitemap.xml           # Peta situs XML terindeks Google
 │   └── router.php            # Router untuk server uji coba PHP CLI lokal
-├── database.sql              # Skema database MySQL & data awal untuk cPanel phpMyAdmin
+├── database.sql              # Skema DDL MySQL untuk deployment server produksi
+├── .env.example              # Template variabel lingkungan (Environment Variables)
 └── .gitignore                # Berkas pengecualian Git
 ```
 
 ---
 
-## Panduan Hosting ke Rumahweb (cPanel)
-
-### 1. Persiapan Database MySQL di cPanel
-1. Masuk ke cPanel Rumahweb Anda.
-2. Buka menu **MySQL Databases**:
-   - Buat database baru (contoh: `u1234567_nifara_db`).
-   - Buat pengguna MySQL baru (contoh: `u1234567_nifara_user`) beserta *password* yang kuat.
-   - Tambahkan pengguna ke database tersebut dengan hak akses **ALL PRIVILEGES**.
-3. Buka menu **phpMyAdmin**:
-   - Pilih database yang baru dibuat.
-   - Masuk ke tab **Import**.
-   - Pilih berkas `database.sql` dari repositori ini, lalu klik **Import**.
-
-### 2. Pengunggahan Berkas Web (*Upload Files*)
-1. Di cPanel, buka **File Manager** dan masuk ke direktori `public_html`.
-2. Unggah seluruh isi berkas dan folder yang ada di dalam folder `website_php/` langsung ke dalam `public_html` (bukan folder `website_php`-nya, melainkan isinya agar `index.php` berada langsung di root `public_html`).
-3. Pastikan izin akses folder:
-   - Folder: `0755`
-   - Berkas: `0644`
-   - Folder `uploads/`: Pastikan memiliki izin tulis (`0755` atau `0775`).
-
-### 3. Konfigurasi Koneksi Database
-Buka berkas `config/database.php` di cPanel File Manager (atau atur via *Environment Variables*):
-Sesuaikan nilai kredensial:
-```php
-define('DB_HOST', 'localhost');
-define('DB_PORT', '3306');
-define('DB_NAME', 'u1234567_nifara_db');
-define('DB_USER', 'u1234567_nifara_user');
-define('DB_PASS', 'PasswordDatabaseAnda');
-```
-
-### 4. Aktivasi SSL (HTTPS)
-1. Buka menu **SSL/TLS Status** di cPanel.
-2. Pastikan sertifikat AutoSSL (Let's Encrypt / cPanel) telah aktif untuk domain `nifaracoaltrading.co.id`.
-3. Pengalihan HTTP ke HTTPS sudah otomatis ditangani oleh berkas `.htaccess`.
-
----
-
 ## Menjalankan di Lingkungan Lokal (*Development*)
 
-Prasyarat: PHP versi 8.1 atau lebih tinggi.
+Sistem dirancang dengan fitur *zero-config portable SQLite* sehingga dapat langsung dijalankan tanpa perlu mengonfigurasi database tambahan.
+
+**Prasyarat:** PHP versi 8.1 atau lebih tinggi dengan ekstensi `pdo_sqlite` aktif.
 
 ```bash
-# Masuk ke direktori website_php
+# 1. Masuk ke direktori website_php
 cd website_php
 
-# Jalankan server bawaan PHP dengan router
+# 2. Jalankan server bawaan PHP menggunakan router
 php -S 127.0.0.1:8000 router.php
 ```
 
-Buka peramban di: `http://127.0.0.1:8000`  
-Portal Admin CMS: `http://127.0.0.1:8000/admin/login.php`
+* **Beranda Website**: `http://127.0.0.1:8000`
+* **Portal Admin CMS**: `http://127.0.0.1:8000/admin/`
+
+> **Inisialisasi Pertama Kali:** Saat pertama kali mengakses `/admin/`, sistem akan menampilkan wizard aman untuk membuat akun Administrator Utama pertama Anda.
+
+---
+
+## Panduan Deployment Server Produksi (MySQL / LAMP / cPanel)
+
+### 1. Impor Skema Basis Data
+1. Buat basis data MySQL kosong di server hosting Anda.
+2. Buat pengguna basis data dengan hak akses penuh ke basis data tersebut.
+3. Buka phpMyAdmin (atau terminal MySQL), pilih basis data Anda, lalu impor berkas [`database.sql`](database.sql).
+
+### 2. Pengunggahan Berkas Web
+1. Salin seluruh isi di dalam direktori `website_php/` langsung ke direktori dokumen web server Anda (misal: `public_html` atau `/var/www/html`).
+2. Pastikan izin akses berkas dan folder:
+   * Direktori: `0755`
+   * Berkas PHP / CSS / JS: `0644`
+   * Direktori `uploads/`: Pastikan memiliki izin tulis (`0755` atau `0775`).
+
+### 3. Konfigurasi Kredensial Basis Data
+Aplikasi mendukung konfigurasi fleksibel melalui *Environment Variables* di server Anda:
+
+| Variabel | Deskripsi | Nilai Default |
+|---|---|---|
+| `DB_HOST` | Host server database | `localhost` |
+| `DB_PORT` | Port server database | `3306` |
+| `DB_NAME` | Nama database MySQL | (Kustom server Anda) |
+| `DB_USER` | Nama pengguna database | (Kustom server Anda) |
+| `DB_PASS` | Kata sandi database | (Kustom server Anda) |
+
+*Contoh konfigurasi dapat merujuk pada berkas [`.env.example`](.env.example).*
+
+### 4. Aktivasi Sertifikat SSL (HTTPS)
+Pastikan sertifikat SSL (Let's Encrypt atau AutoSSL) telah aktif pada domain Anda. Pengalihan otomatis HTTP ke HTTPS serta *Security Headers* (HSTS, X-Content-Type-Options, X-Frame-Options) telah dikonfigurasi melalui berkas `.htaccess`.
+
+---
+
+## Lisensi & Hak Cipta
+
+&copy; 2026 PT. Nifara Coal Trading. Hak cipta dilindungi undang-undang.
