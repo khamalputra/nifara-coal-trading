@@ -66,7 +66,7 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
   <!-- Performance & Resource Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="<?= ($basePath === '.' ? 'img/hero.jpg' : $basePath . '/img/hero.jpg') ?>" fetchpriority="high">
+  <link rel="preload" as="image" href="<?= ($basePath === '.' ? 'img/hero.webp' : $basePath . '/img/hero.webp') ?>" type="image/webp" fetchpriority="high">
 
   <!-- Google Fonts: Nunito & Plus Jakarta Sans -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&family=Plus+Jakarta+Sans:wght@600;700&display=swap">
@@ -153,7 +153,10 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
 <header class="site-header" id="top">
   <div class="wrap bar" id="headerInner">
     <a class="brand" id="brandLogo" href="<?= $basePath ?>/index.php#hero" aria-label="PT. Nifara Coal Trading" data-en-aria-label="PT. Nifara Coal Trading">
-      <img src="<?= $basePath ?>/img/logo.png" alt="PT. Nifara Coal Trading Logo" height="46" style="height: 46px; width: auto; max-height: 46px; display: block;">
+      <picture>
+        <source srcset="<?= $basePath ?>/img/logo.webp" type="image/webp">
+        <img src="<?= $basePath ?>/img/logo.png" alt="PT. Nifara Coal Trading Logo" width="180" height="46" style="height: 46px; width: auto; max-height: 46px; display: block;">
+      </picture>
     </a>
     <div class="tools">
       <nav class="site-nav" aria-label="Menu utama" data-en-aria-label="Main menu">

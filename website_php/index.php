@@ -27,7 +27,10 @@ require_once __DIR__ . '/includes/header.php';
 
   <section class="hero" id="hero" aria-labelledby="h1">
     <div class="hero-photo-wrap">
-      <img class="hero-photo" src="img/hero.jpg" alt="Truk pengangkut batubara di tambang PT Nifara Coal Trading" width="400" height="238" style="max-width: 100%; height: auto;" fetchpriority="high">
+      <picture>
+        <source srcset="img/hero.webp" type="image/webp">
+        <img class="hero-photo" src="img/hero.jpg" alt="Truk pengangkut batubara di tambang PT Nifara Coal Trading" width="400" height="238" style="max-width: 100%; height: auto;" fetchpriority="high">
+      </picture>
       <div class="hero-scrim"></div>
       <div class="hero-geo-stripes" aria-hidden="true">
         <span class="geo-stripe s1"></span>
@@ -101,7 +104,10 @@ require_once __DIR__ . '/includes/header.php';
       </div>
       <figure class="figure about-card" style="margin:0">
         <div class="about-card-img">
-          <img src="img/port.jpg" alt="Grab pemuat batubara di pelabuhan dengan alat berat dan laut di latar belakang" data-en-alt="Coal grab loader at a port with heavy equipment and the sea in the background" width="400" height="200" style="max-width: 100%; height: auto;" loading="lazy">
+          <picture>
+            <source srcset="img/port.webp" type="image/webp">
+            <img src="img/port.jpg" alt="Grab pemuat batubara di pelabuhan dengan alat berat dan laut di latar belakang" data-en-alt="Coal grab loader at a port with heavy equipment and the sea in the background" width="400" height="200" style="max-width: 100%; height: auto;" loading="lazy">
+          </picture>
         </div>
         <figcaption class="about-card-body">
           <div class="about-card-header">
@@ -183,7 +189,10 @@ require_once __DIR__ . '/includes/header.php';
         <!-- Kartu 1: Visi Perusahaan -->
         <article class="vm-card">
           <div class="vm-card-img">
-            <img src="img/barge-card.jpg" alt="Tongkang pengangkut batubara berlayar saat matahari terbenam" data-en-alt="Coal barge sailing at sunset" width="400" height="250" style="max-width: 100%; height: auto;" loading="lazy">
+            <picture>
+              <source srcset="img/barge-card.webp" type="image/webp">
+              <img src="img/barge-card.jpg" alt="Tongkang pengangkut batubara berlayar saat matahari terbenam" data-en-alt="Coal barge sailing at sunset" width="400" height="250" style="max-width: 100%; height: auto;" loading="lazy">
+            </picture>
             <span class="vm-badge" data-en="Vision">Visi</span>
           </div>
           <div class="vm-card-body">
@@ -205,7 +214,10 @@ require_once __DIR__ . '/includes/header.php';
         <!-- Kartu 2: Misi Strategis -->
         <article class="vm-card">
           <div class="vm-card-img">
-            <img src="img/dermaga-card.jpg" alt="Truk batubara antre di dermaga dengan tongkang bermuatan" data-en-alt="Coal trucks queueing at a jetty with a loaded barge" width="400" height="250" style="max-width: 100%; height: auto;" loading="lazy">
+            <picture>
+              <source srcset="img/dermaga-card.webp" type="image/webp">
+              <img src="img/dermaga-card.jpg" alt="Truk batubara antre di dermaga dengan tongkang bermuatan" data-en-alt="Coal trucks queueing at a jetty with a loaded barge" width="400" height="250" style="max-width: 100%; height: auto;" loading="lazy">
+            </picture>
             <span class="vm-badge" data-en="Mission">Misi</span>
           </div>
           <div class="vm-card-body">
@@ -256,8 +268,14 @@ require_once __DIR__ . '/includes/header.php';
           <article class="leader-card">
             <div class="leader-card-frame">
               <div class="leader-photo-wrap">
-                <img class="leader-bg-img" src="img/niha.jpg" alt="Latar foto Niha Meisya Maharani, Komisaris PT Nifara Coal Trading" data-en-alt="Background portrait of Niha Meisya Maharani, Commissioner" width="400" height="432" loading="lazy">
-                <img class="leader-cutout-img" src="img/niha-cutout.png" alt="Niha Meisya Maharani, Komisaris PT Nifara Coal Trading" data-en-alt="Niha Meisya Maharani, Commissioner of PT Nifara Coal Trading" width="400" height="432" loading="lazy">
+                <picture>
+                  <source srcset="img/niha.webp" type="image/webp">
+                  <img class="leader-bg-img" src="img/niha.jpg" alt="Latar foto Niha Meisya Maharani, Komisaris PT Nifara Coal Trading" data-en-alt="Background portrait of Niha Meisya Maharani, Commissioner" width="400" height="432" loading="lazy">
+                </picture>
+                <picture>
+                  <source srcset="img/niha-cutout.webp" type="image/webp">
+                  <img class="leader-cutout-img" src="img/niha-cutout.png" alt="Niha Meisya Maharani, Komisaris PT Nifara Coal Trading" data-en-alt="Niha Meisya Maharani, Commissioner of PT Nifara Coal Trading" width="400" height="432" loading="lazy">
+                </picture>
               </div>
               <div class="leader-info">
                 <h3 class="leader-name">Niha Meisya Maharani</h3>
@@ -269,8 +287,14 @@ require_once __DIR__ . '/includes/header.php';
           <article class="leader-card">
             <div class="leader-card-frame">
               <div class="leader-photo-wrap">
-                <img class="leader-bg-img" src="img/rizki.jpg" alt="Latar foto Rizki Abdian Putra, Direktur PT Nifara Coal Trading" data-en-alt="Background portrait of Rizki Abdian Putra, Director" width="400" height="432" loading="lazy">
-                <img class="leader-cutout-img" src="img/rizki-cutout.png" alt="Rizki Abdian Putra, Direktur PT Nifara Coal Trading" data-en-alt="Rizki Abdian Putra, Director of PT Nifara Coal Trading" width="400" height="432" loading="lazy">
+                <picture>
+                  <source srcset="img/rizki.webp" type="image/webp">
+                  <img class="leader-bg-img" src="img/rizki.jpg" alt="Latar foto Rizki Abdian Putra, Direktur PT Nifara Coal Trading" data-en-alt="Background portrait of Rizki Abdian Putra, Director" width="400" height="432" loading="lazy">
+                </picture>
+                <picture>
+                  <source srcset="img/rizki-cutout.webp" type="image/webp">
+                  <img class="leader-cutout-img" src="img/rizki-cutout.png" alt="Rizki Abdian Putra, Direktur PT Nifara Coal Trading" data-en-alt="Rizki Abdian Putra, Director of PT Nifara Coal Trading" width="400" height="432" loading="lazy">
+                </picture>
               </div>
               <div class="leader-info">
                 <h3 class="leader-name">Rizki Abdian Putra</h3>

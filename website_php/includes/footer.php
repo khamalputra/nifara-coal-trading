@@ -14,7 +14,10 @@ $basePath = $basePath ?? '.';
       <!-- Col 1: Profil & Identitas Perusahaan -->
       <div class="footer-col footer-about">
         <a href="<?= $basePath ?>/index.php" class="footer-logo-link" aria-label="PT. Nifara Coal Trading Beranda">
-          <img src="<?= $basePath ?>/img/logo.png" alt="PT Nifara Coal Trading" class="footer-logo" height="48" style="height: 48px; width: auto; max-height: 48px; display: block;" loading="lazy">
+          <picture>
+            <source srcset="<?= $basePath ?>/img/logo.webp" type="image/webp">
+            <img src="<?= $basePath ?>/img/logo.png" alt="PT Nifara Coal Trading" class="footer-logo" width="188" height="48" style="height: 48px; width: auto; max-height: 48px; display: block;" loading="lazy">
+          </picture>
         </a>
         <p class="footer-desc" data-en="PT. Nifara Coal Trading provides licensed thermal coal supplies for domestic industrial boilers and Asian export markets, backed by strict quality inspection and coordinated marine logistics.">
           PT. Nifara Coal Trading melayani pasokan batubara termal berizin resmi untuk industri dalam negeri dan ekspor Asia, didukung pengawasan mutu terukur dan logistik maritim terpadu.
