@@ -368,7 +368,7 @@ require_once __DIR__ . '/includes/header.php';
           <p class="lead" data-en="Publication of official operational activities and social environmental responsibility.">Publikasi aktivitas operasional resmi dan tanggung jawab sosial lingkungan&nbsp;perusahaan.</p>
         </div>
         <div>
-          <a class="btn" href="berita/index.php">
+          <a class="btn" href="berita/">
             <span data-en="View all articles">Lihat semua artikel</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </a>

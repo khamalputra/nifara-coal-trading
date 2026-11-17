@@ -58,7 +58,7 @@ $basePath = $basePath ?? '.';
           <li><a href="<?= $basePath ?>/index.php#visi" data-en="Vision &amp; Mission">Visi &amp; Misi</a></li>
           <li><a href="<?= $basePath ?>/index.php#pimpinan" data-en="Leadership">Pimpinan Perusahaan</a></li>
           <li><a href="<?= $basePath ?>/index.php#legalitas" data-en="Official Legalities">Legalitas &amp; Perizinan</a></li>
-          <li><a href="<?= $basePath ?>/berita/index.php" data-en="News &amp; CSR">Kabar Berita &amp; CSR</a></li>
+          <li><a href="<?= $basePath ?>/berita/" data-en="News &amp; CSR">Kabar Berita &amp; CSR</a></li>
           <li><a href="<?= $basePath ?>/index.php#legalitas" data-en="Privacy Policy &amp; Terms">Kebijakan Privasi &amp; Kepatuhan</a></li>
           <li><a href="<?= $basePath ?>/index.php#kontak" data-en="Contact Us">Hubungi Kami</a></li>
         </ul>
