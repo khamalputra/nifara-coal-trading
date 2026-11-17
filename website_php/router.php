@@ -3,7 +3,17 @@
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $file = __DIR__ . $uri;
 
-// 1. Static file check
+// 1. Canonical redirect: /index.php -> /
+if ($uri === '/index.php') {
+    header('Location: /', true, 301);
+    exit;
+}
+if ($uri === '/berita/index.php') {
+    header('Location: /berita/', true, 301);
+    exit;
+}
+
+// 2. Static file check
 if ($uri !== '/' && file_exists($file) && !is_dir($file)) {
     return false; // serve directly
 }
@@ -21,8 +31,16 @@ if (is_dir($file) && file_exists($file . '/index.php')) {
     return true;
 }
 
-// 4. Root / index.php
-if ($uri === '/' || $uri === '/index.php') {
+// 4. Canonical redirect: /index.php -> /
+if ($uri === '/index.php') {
+    header('Location: /', true, 301);
+    exit;
+}
+if ($uri === '/berita/index.php') {
+    header('Location: /berita/', true, 301);
+    exit;
+}
+if ($uri === '/') {
     require __DIR__ . '/index.php';
     return true;
 }
