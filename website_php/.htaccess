@@ -13,6 +13,13 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # Canonical 301 Redirects: Remove index.php from URL
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php [NC]
+  RewriteRule ^index\.php$ https://%{HTTP_HOST}/ [R=301,L]
+
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /berita/index\.php [NC]
+  RewriteRule ^berita/index\.php$ https://%{HTTP_HOST}/berita/ [R=301,L]
+
   # Pretty URL for articles: /berita/judul-slug -> /berita/detail.php?slug=judul-slug
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
