@@ -31,6 +31,7 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
   <meta name="keywords" content="Nifara Coal Trading, batubara Indonesia, jual batubara, pengangkutan batubara, coal trading, IUP OP, KBLI 46710, batubara sumatera">
   <meta name="author" content="PT. Nifara Coal Trading">
   <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="google19fd1744191acb17">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl) ?>">
