@@ -60,8 +60,12 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
   <!-- AI Discoverability -->
   <link rel="llms" href="<?= $basePath ?>/llms.txt">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="<?= $basePath ?>/img/logo.png">
+  <!-- Favicon (Google Search & Multi-Device Standard 1:1 Square) -->
+  <link rel="icon" type="image/x-icon" href="<?= $basePath ?>/favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="<?= $basePath ?>/img/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="<?= $basePath ?>/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="<?= $basePath ?>/img/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= $basePath ?>/img/apple-touch-icon.png">
 
   <!-- Performance & Resource Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
