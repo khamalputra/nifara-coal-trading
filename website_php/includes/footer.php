@@ -192,6 +192,6 @@ $homePrefix = ($basePath === '.') ? '' : '/';
 </aside>
 
 <!-- Main JS & Micro-Interactions -->
-<script src="<?= $basePath ?>/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>

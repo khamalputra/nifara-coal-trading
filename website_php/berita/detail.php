@@ -6,6 +6,7 @@
 
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/auth.php';
+require_once __DIR__ . '/../config/translations.php';
 
 $db = getDB();
 $basePath = '..';
@@ -49,20 +50,18 @@ $artIsoDate = date('c', strtotime($article['created_at']));
 $artImg = !empty($article['image']) ? $basePath . '/' . ltrim($article['image'], '/') : $basePath . '/img/hero.jpg';
 $pageImage = !empty($article['image']) ? 'https://nifaracoaltrading.co.id/' . ltrim($article['image'], '/') : 'https://nifaracoaltrading.co.id/img/hero.jpg';
 
+// Resolve English translation fields
+$artTitleEn = resolveArticleField($article, 'title');
+$artExcerptEn = resolveArticleField($article, 'excerpt');
+$artContentEn = resolveArticleField($article, 'content');
+$artCategoryEn = resolveArticleField($article, 'category');
+
 // Fetch related articles
 $relStmt = $db->prepare("SELECT * FROM articles WHERE id != ? AND status = 'published' ORDER BY created_at DESC LIMIT 2");
 $relStmt->execute([$article['id']]);
 $relatedArticles = $relStmt->fetchAll();
 
-$categoryMap = [
-    'CSR' => 'CSR',
-    'Operasional' => 'Operations',
-    'Operasional & Rantai Pasok' => 'Operations & Supply Chain',
-    'Regulasi & Kepatuhan' => 'Regulation & Compliance',
-    'Tata Kelola & Legalitas' => 'Governance & Legal',
-    'Wawasan Pasar' => 'Market Insights',
-    'Berita' => 'News'
-];
+$categoryMap = getCategoryMap();
 
 include __DIR__ . '/../includes/header.php';
 ?>
@@ -107,17 +106,17 @@ include __DIR__ . '/../includes/header.php';
       </a>
       
       <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 18px; flex-wrap: wrap;">
-        <span class="news-tag <?= $article['category'] === 'CSR' ? 'csr' : '' ?>" style="position: static;" data-en="<?= htmlspecialchars($categoryMap[$article['category']] ?? $article['category']) ?>"><?= htmlspecialchars($article['category']) ?></span>
+        <span class="news-tag <?= $article['category'] === 'CSR' ? 'csr' : '' ?>" style="position: static;" data-en="<?= htmlspecialchars($artCategoryEn) ?>"><?= htmlspecialchars($article['category']) ?></span>
         <span style="color: var(--muted); font-size: 0.88rem;"><?= $artDate ?></span>
         <span style="color: var(--muted); font-size: 0.88rem;">&bull;</span>
         <span style="color: var(--muted); font-size: 0.88rem;"><span data-en="By:">Oleh:</span> <?= htmlspecialchars($article['author'] ?? 'PT. Nifara Coal Trading') ?></span>
       </div>
 
-      <h1 style="font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.25; font-weight: 800; color: var(--paper); margin-bottom: 20px;" data-en="<?= htmlspecialchars($article['title_en'] ?? $article['title']) ?>">
+      <h1 style="font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.25; font-weight: 800; color: var(--paper); margin-bottom: 20px;" data-en="<?= htmlspecialchars($artTitleEn) ?>">
         <?= htmlspecialchars($article['title']) ?>
       </h1>
 
-      <p style="font-size: 1.12rem; line-height: 1.7; color: var(--text); font-weight: 400; border-left: 3px solid var(--gold); padding-left: 18px;" data-en="<?= htmlspecialchars($article['excerpt_en'] ?? $article['excerpt']) ?>">
+      <p style="font-size: 1.12rem; line-height: 1.7; color: var(--text); font-weight: 400; border-left: 3px solid var(--gold); padding-left: 18px;" data-en="<?= htmlspecialchars($artExcerptEn) ?>">
         <?= htmlspecialchars($article['excerpt']) ?>
       </p>
     </div>
@@ -131,7 +130,7 @@ include __DIR__ . '/../includes/header.php';
         <img src="<?= htmlspecialchars($artImg) ?>" alt="<?= htmlspecialchars($article['title']) ?>" class="article-hero-img">
       <?php endif; ?>
 
-      <div class="article-prose"<?= !empty($article['content_en']) ? ' data-en="' . htmlspecialchars($article['content_en']) . '"' : '' ?>>
+      <div class="article-prose"<?= !empty($artContentEn) ? ' data-en="' . htmlspecialchars($artContentEn) . '"' : '' ?>>
         <?= sanitizeArticleHtml($article['content']) ?>
       </div>
 
@@ -150,20 +149,24 @@ include __DIR__ . '/../includes/header.php';
           <h3 style="font-size: 1.5rem; color: var(--paper); margin: 8px 0 24px;" data-en="Related Publications">Publikasi Terkait</h3>
           <div class="news-grid">
             <?php foreach ($relatedArticles as $rel): ?>
-              <?php $relImg = !empty($rel['image']) ? $basePath . '/' . ltrim($rel['image'], '/') : $basePath . '/img/hero.jpg'; ?>
+              <?php 
+                $relImg = !empty($rel['image']) ? $basePath . '/' . ltrim($rel['image'], '/') : $basePath . '/img/hero.jpg'; 
+                $relTitleEn = resolveArticleField($rel, 'title');
+                $relCatEn = resolveArticleField($rel, 'category');
+              ?>
               <article class="news-card">
                 <a href="/berita/<?= urlencode($rel['slug']) ?>" class="news-thumb-wrap">
                   <img src="<?= htmlspecialchars($relImg) ?>" alt="<?= htmlspecialchars($rel['title']) ?>" loading="lazy">
-                  <span class="news-tag <?= $rel['category'] === 'CSR' ? 'csr' : '' ?>" data-en="<?= htmlspecialchars($categoryMap[$rel['category']] ?? $rel['category']) ?>"><?= htmlspecialchars($rel['category']) ?></span>
+                  <span class="news-tag <?= $rel['category'] === 'CSR' ? 'csr' : '' ?>" data-en="<?= htmlspecialchars($relCatEn) ?>"><?= htmlspecialchars($rel['category']) ?></span>
                 </a>
                 <div class="news-body">
                   <div class="news-date">
                     <span><?= date('d M Y', strtotime($rel['created_at'])) ?></span>
                   </div>
                   <h4 class="news-title">
-                    <a href="/berita/<?= urlencode($rel['slug']) ?>" data-en="<?= htmlspecialchars($rel['title_en'] ?? $rel['title']) ?>"><?= htmlspecialchars($rel['title']) ?></a>
+                    <a href="/berita/<?= urlencode($rel['slug']) ?>" data-en="<?= htmlspecialchars($relTitleEn) ?>"><?= htmlspecialchars($rel['title']) ?></a>
                   </h4>
-                  <a href="/berita/<?= urlencode($rel['slug']) ?>" class="news-readmore" aria-label="Baca artikel: <?= htmlspecialchars($rel['title']) ?>" data-en-aria-label="Read article: <?= htmlspecialchars($rel['title_en'] ?? $rel['title']) ?>">
+                  <a href="/berita/<?= urlencode($rel['slug']) ?>" class="news-readmore" aria-label="Baca artikel: <?= htmlspecialchars($rel['title']) ?>" data-en-aria-label="Read article: <?= htmlspecialchars($relTitleEn) ?>">
                     <span data-en="Read more &rarr;">Baca selengkapnya &rarr;</span>
                   </a>
                 </div>

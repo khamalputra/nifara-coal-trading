@@ -58,19 +58,19 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
   <meta name="twitter:image" content="<?= htmlspecialchars($absoluteImage) ?>">
 
   <!-- AI Discoverability -->
-  <link rel="llms" href="<?= $basePath ?>/llms.txt">
+  <link rel="llms" href="/llms.txt">
 
   <!-- Favicon (Google Search & Multi-Device Standard 1:1 Square) -->
-  <link rel="icon" type="image/x-icon" href="<?= $basePath ?>/favicon.ico">
-  <link rel="icon" type="image/png" sizes="48x48" href="<?= $basePath ?>/img/favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="<?= $basePath ?>/img/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="<?= $basePath ?>/img/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="<?= $basePath ?>/img/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 
   <!-- Performance & Resource Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="<?= ($basePath === '.' ? 'img/hero.webp' : $basePath . '/img/hero.webp') ?>" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/img/hero.webp" type="image/webp" fetchpriority="high">
 
   <!-- Google Fonts: Nunito & Plus Jakarta Sans -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&family=Plus+Jakarta+Sans:wght@600;700&display=swap">
@@ -79,7 +79,7 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
   <script defer src="https://cdn.jsdelivr.net/npm/motion@10.18.0/dist/motion.umd.js"></script>
 
   <!-- Modular CSS -->
-  <link rel="stylesheet" href="<?= $basePath ?>/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
   <!-- Structured Data: Organization & WebSite (JSON-LD) -->
   <script type="application/ld+json">

@@ -5,6 +5,7 @@
  */
 
 require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/config/translations.php';
 
 // Fetch latest 3 published articles for the homepage
 $articles = [];
@@ -21,15 +22,7 @@ try {
 $pageTitle = 'PT. Nifara Coal Trading | Perdagangan Batu Bara';
 $basePath = '.';
 
-$categoryMap = [
-    'CSR' => 'CSR',
-    'Operasional' => 'Operations',
-    'Operasional & Rantai Pasok' => 'Operations & Supply Chain',
-    'Regulasi & Kepatuhan' => 'Regulation & Compliance',
-    'Tata Kelola & Legalitas' => 'Governance & Legal',
-    'Wawasan Pasar' => 'Market Insights',
-    'Berita' => 'News'
-];
+$categoryMap = getCategoryMap();
 
 require_once __DIR__ . '/includes/header.php';
 ?>
@@ -389,10 +382,15 @@ require_once __DIR__ . '/includes/header.php';
       <div class="news-grid">
         <?php if (!empty($articles)): ?>
           <?php foreach ($articles as $art): ?>
+            <?php
+              $artTitleEn = resolveArticleField($art, 'title');
+              $artExcerptEn = resolveArticleField($art, 'excerpt');
+              $artCatEn = resolveArticleField($art, 'category');
+            ?>
             <article class="news-card">
-              <a href="berita/<?= urlencode($art['slug']) ?>" class="news-thumb-wrap">
+              <a href="/berita/<?= urlencode($art['slug']) ?>" class="news-thumb-wrap">
                 <img src="<?= htmlspecialchars(!empty($art['image']) ? $art['image'] : 'img/hero.jpg') ?>" alt="<?= htmlspecialchars($art['title']) ?>" width="400" height="267" style="max-width: 100%; height: auto;" loading="lazy">
-                <span class="news-tag <?= $art['category'] === 'CSR' ? 'csr' : '' ?>" data-en="<?= htmlspecialchars($categoryMap[$art['category']] ?? $art['category']) ?>"><?= htmlspecialchars($art['category']) ?></span>
+                <span class="news-tag <?= $art['category'] === 'CSR' ? 'csr' : '' ?>" data-en="<?= htmlspecialchars($artCatEn) ?>"><?= htmlspecialchars($art['category']) ?></span>
               </a>
               <div class="news-body">
                 <div class="news-date">
@@ -400,10 +398,10 @@ require_once __DIR__ . '/includes/header.php';
                   <span><?= date('d M Y', strtotime($art['created_at'])) ?></span>
                 </div>
                 <h3 class="news-title">
-                  <a href="berita/<?= urlencode($art['slug']) ?>" data-en="<?= htmlspecialchars(!empty($art['title_en']) ? mb_strimwidth($art['title_en'], 0, 58, '...') : $art['title']) ?>"><?= htmlspecialchars(mb_strimwidth($art['title'], 0, 58, '...')) ?></a>
+                  <a href="/berita/<?= urlencode($art['slug']) ?>" data-en="<?= htmlspecialchars(mb_strimwidth($artTitleEn, 0, 58, '...')) ?>"><?= htmlspecialchars(mb_strimwidth($art['title'], 0, 58, '...')) ?></a>
                 </h3>
-                <p class="news-snippet" data-en="<?= htmlspecialchars($art['excerpt_en'] ?? $art['excerpt']) ?>"><?= htmlspecialchars($art['excerpt'] ?? substr(strip_tags($art['content']), 0, 120) . '...') ?></p>
-                <a href="berita/<?= urlencode($art['slug']) ?>" class="news-readmore" aria-label="Baca selengkapnya mengenai <?= htmlspecialchars($art['title']) ?>" data-en-aria-label="Read full story: <?= htmlspecialchars($art['title_en'] ?? $art['title']) ?>">
+                <p class="news-snippet" data-en="<?= htmlspecialchars($artExcerptEn) ?>"><?= htmlspecialchars($art['excerpt'] ?? substr(strip_tags($art['content']), 0, 120) . '...') ?></p>
+                <a href="/berita/<?= urlencode($art['slug']) ?>" class="news-readmore" aria-label="Baca selengkapnya mengenai <?= htmlspecialchars($art['title']) ?>" data-en-aria-label="Read full story: <?= htmlspecialchars($artTitleEn) ?>">
                   <span data-en="Read full story">Baca selengkapnya</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
                 </a>

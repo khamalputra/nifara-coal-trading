@@ -1098,7 +1098,7 @@ $msg = $_GET['msg'] ?? '';
               <tr class="article-row" data-title="<?= strtolower(htmlspecialchars($art['title'])) ?>" data-slug="<?= strtolower(htmlspecialchars($art['slug'])) ?>" data-category="<?= htmlspecialchars($art['category']) ?>">
                 <td class="col-idx">#<?= sprintf('%02d', $idx + 1) ?></td>
                 <td class="art-title-cell">
-                  <a href="../berita/detail.php?slug=<?= urlencode($art['slug']) ?>" target="_blank" class="art-title-link">
+                  <a href="/berita/<?= urlencode($art['slug']) ?>" target="_blank" class="art-title-link">
                     <?= htmlspecialchars($art['title']) ?>
                   </a>
                   <div class="art-slug-box">
@@ -1140,7 +1140,7 @@ $msg = $_GET['msg'] ?? '';
                 </td>
                 <td>
                   <div class="action-group">
-                    <a href="../berita/detail.php?slug=<?= urlencode($art['slug']) ?>" target="_blank" class="btn-action btn-action-view" title="Lihat di Website">
+                    <a href="/berita/<?= urlencode($art['slug']) ?>" target="_blank" class="btn-action btn-action-view" title="Lihat di Website">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                         <polyline points="15 3 21 3 21 9"></polyline>

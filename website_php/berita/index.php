@@ -5,6 +5,7 @@
  */
 
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/translations.php';
 
 $db = getDB();
 $basePath = '..';
@@ -40,16 +41,7 @@ $articles = $stmt->fetchAll();
 $catStmt = $db->query("SELECT DISTINCT category FROM articles WHERE status = 'published'");
 $categories = $catStmt->fetchAll(PDO::FETCH_COLUMN);
 
-$categoryMap = [
-    'Semua' => 'All',
-    'CSR' => 'CSR',
-    'Operasional' => 'Operations',
-    'Operasional & Rantai Pasok' => 'Operations & Supply Chain',
-    'Regulasi & Kepatuhan' => 'Regulation & Compliance',
-    'Tata Kelola & Legalitas' => 'Governance & Legal',
-    'Wawasan Pasar' => 'Market Insights',
-    'Berita' => 'News'
-];
+$categoryMap = getCategoryMap();
 
 // Metadata & Canonical
 $pageTitle = 'Publikasi & Program CSR | PT. Nifara Coal Trading';
@@ -99,11 +91,14 @@ include __DIR__ . '/../includes/header.php';
           <?php foreach ($articles as $art): ?>
             <?php 
               $artImg = !empty($art['image']) ? $basePath . '/' . ltrim($art['image'], '/') : $basePath . '/img/hero.jpg';
+              $artTitleEn = resolveArticleField($art, 'title');
+              $artExcerptEn = resolveArticleField($art, 'excerpt');
+              $artCatEn = resolveArticleField($art, 'category');
             ?>
             <article class="news-card">
               <a href="/berita/<?= urlencode($art['slug']) ?>" class="news-thumb-wrap">
                 <img src="<?= htmlspecialchars($artImg) ?>" alt="<?= htmlspecialchars($art['title']) ?>" loading="lazy">
-                <span class="news-tag <?= $art['category'] === 'CSR' ? 'csr' : '' ?>" data-en="<?= htmlspecialchars($categoryMap[$art['category']] ?? $art['category']) ?>"><?= htmlspecialchars($art['category']) ?></span>
+                <span class="news-tag <?= $art['category'] === 'CSR' ? 'csr' : '' ?>" data-en="<?= htmlspecialchars($artCatEn) ?>"><?= htmlspecialchars($art['category']) ?></span>
               </a>
               <div class="news-body">
                 <div class="news-date">
@@ -113,10 +108,10 @@ include __DIR__ . '/../includes/header.php';
                   <span><?= htmlspecialchars($art['author'] ?? 'PT. Nifara Coal Trading') ?></span>
                 </div>
                 <h2 class="news-title" style="font-size: 1.18rem;">
-                  <a href="/berita/<?= urlencode($art['slug']) ?>" data-en="<?= htmlspecialchars($art['title_en'] ?? $art['title']) ?>"><?= htmlspecialchars($art['title']) ?></a>
+                  <a href="/berita/<?= urlencode($art['slug']) ?>" data-en="<?= htmlspecialchars($artTitleEn) ?>"><?= htmlspecialchars($art['title']) ?></a>
                 </h2>
-                <p class="news-snippet" data-en="<?= htmlspecialchars($art['excerpt_en'] ?? $art['excerpt']) ?>"><?= htmlspecialchars($art['excerpt'] ?? substr(strip_tags($art['content']), 0, 130) . '...') ?></p>
-                <a href="/berita/<?= urlencode($art['slug']) ?>" class="news-readmore" aria-label="Baca artikel: <?= htmlspecialchars($art['title']) ?>" data-en-aria-label="Read article: <?= htmlspecialchars($art['title_en'] ?? $art['title']) ?>">
+                <p class="news-snippet" data-en="<?= htmlspecialchars($artExcerptEn) ?>"><?= htmlspecialchars($art['excerpt'] ?? substr(strip_tags($art['content']), 0, 130) . '...') ?></p>
+                <a href="/berita/<?= urlencode($art['slug']) ?>" class="news-readmore" aria-label="Baca artikel: <?= htmlspecialchars($art['title']) ?>" data-en-aria-label="Read article: <?= htmlspecialchars($artTitleEn) ?>">
                   <span data-en="Read full article">Baca artikel lengkap</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
                 </a>

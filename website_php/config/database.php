@@ -37,6 +37,7 @@ function getDB() {
                 PDO::ATTR_EMULATE_PREPARES   => false,
             ];
             $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+            ensureArticleEnglishColumns($pdo);
             return $pdo;
         } catch (PDOException $e) {
             // Log or fallback to SQLite for zero-config portability
@@ -57,6 +58,15 @@ function getDB() {
     // Ensure schema exists on SQLite
     initDatabaseSchema($pdo, 'sqlite');
     return $pdo;
+}
+
+function ensureArticleEnglishColumns(PDO $pdo) {
+    static $done = false;
+    if ($done) return;
+    $done = true;
+    try { $pdo->exec("ALTER TABLE articles ADD COLUMN title_en VARCHAR(255) NULL;"); } catch (Exception $e) {}
+    try { $pdo->exec("ALTER TABLE articles ADD COLUMN excerpt_en TEXT NULL;"); } catch (Exception $e) {}
+    try { $pdo->exec("ALTER TABLE articles ADD COLUMN content_en LONGTEXT NULL;"); } catch (Exception $e) {}
 }
 
 /**
