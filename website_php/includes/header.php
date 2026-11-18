@@ -143,7 +143,17 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
   }
   </script>
 
-  <script>document.documentElement.lang = "id";</script>
+  <script>
+    (function () {
+      try {
+        var savedLang = localStorage.getItem("nct-lang");
+        if (savedLang === "en") document.documentElement.lang = "en";
+        else document.documentElement.lang = "id";
+      } catch (e) {
+        document.documentElement.lang = "id";
+      }
+    })();
+  </script>
 </head>
 <body>
 

@@ -669,25 +669,28 @@
   function runNumberCounters() {
     statElements.forEach((el) => {
       const text = el.textContent.trim();
-      const match = text.match(/(\d+([.,]\d+)?)/);
+      const match = text.match(/\d+([.,]\d{3})*/);
       if (!match) return;
 
-      const hasSeparator = match[0].includes(".") || match[0].includes(",");
-      const isYear = /^\d{4}$/.test(match[0]) && parseInt(match[0], 10) >= 1900 && parseInt(match[0], 10) <= 2100;
+      const matchedStr = match[0];
+      const hasSeparator = matchedStr.includes(".") || matchedStr.includes(",");
+      const isYear = /^\d{4}$/.test(matchedStr) && parseInt(matchedStr, 10) >= 1900 && parseInt(matchedStr, 10) <= 2100;
       const useLocale = hasSeparator && !isYear;
 
-      const rawNum = match[0].replace(/\./g, "").replace(",", ".");
-      const targetVal = parseFloat(rawNum);
+      const rawNum = matchedStr.replace(/[.,]/g, "");
+      const targetVal = parseInt(rawNum, 10);
       if (isNaN(targetVal)) return;
 
       const prefix = text.slice(0, match.index);
-      const suffix = text.slice(match.index + match[0].length);
+      const suffix = text.slice(match.index + matchedStr.length);
 
       const duration = 1600;
       const start = performance.now();
 
       function formatNum(n) {
-        return useLocale ? n.toLocaleString("id-ID") : String(n);
+        if (!useLocale) return String(n);
+        const activeLang = document.documentElement.lang === "en" ? "en-US" : "id-ID";
+        return n.toLocaleString(activeLang);
       }
 
       function update(now) {
@@ -755,12 +758,12 @@
       mapTabPayakumbuh.classList.toggle("active", isPayakumbuh);
       mapTabPayakumbuh.setAttribute("aria-selected", String(isPayakumbuh));
       mapPanePayakumbuh.classList.toggle("active", isPayakumbuh);
-      mapPanePayakumbuh.setAttribute("aria-hidden", String(!isPayakumbuh));
+      mapPanePayakumbuh.hidden = !isPayakumbuh;
 
       mapTabJakarta.classList.toggle("active", !isPayakumbuh);
       mapTabJakarta.setAttribute("aria-selected", String(!isPayakumbuh));
       mapPaneJakarta.classList.toggle("active", !isPayakumbuh);
-      mapPaneJakarta.setAttribute("aria-hidden", String(isPayakumbuh));
+      mapPaneJakarta.hidden = isPayakumbuh;
     }
 
     mapTabPayakumbuh.addEventListener("click", () => activateMapTab("payakumbuh"));
