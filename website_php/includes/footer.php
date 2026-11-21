@@ -191,7 +191,8 @@ $homePrefix = ($basePath === '.') ? '' : '/';
   </a>
 </aside>
 
-<!-- Main JS & Micro-Interactions -->
-<script src="/assets/js/main.js"></script>
+<!-- Main JS & Micro-Interactions (Cache Busting via filemtime) -->
+<?php $jsVer = @filemtime(__DIR__ . '/../assets/js/main.js') ?: '20261121'; ?>
+<script src="/assets/js/main.js?v=<?= $jsVer ?>"></script>
 </body>
 </html>

@@ -60,12 +60,12 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
   <!-- AI Discoverability -->
   <link rel="llms" href="/llms.txt">
 
-  <!-- Favicon (Google Search & Multi-Device Standard 1:1 Square) -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- Favicon (Google Search & Multi-Device Standard 1:1 Square with Cache Busting) -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+  <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48x48.png?v=2">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png?v=2">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192x192.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png?v=2">
 
   <!-- Performance & Resource Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,8 +78,9 @@ $absoluteImage = str_starts_with($pageImage, 'http') ? $pageImage : ('https://ni
   <!-- Motion Library (Deferred for Performance) -->
   <script defer src="https://cdn.jsdelivr.net/npm/motion@10.18.0/dist/motion.umd.js"></script>
 
-  <!-- Modular CSS -->
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Modular CSS (Cache Busting via filemtime) -->
+  <?php $cssVer = @filemtime(__DIR__ . '/../assets/css/style.css') ?: '20261121'; ?>
+  <link rel="stylesheet" href="/assets/css/style.css?v=<?= $cssVer ?>">
 
   <!-- Structured Data: Organization & WebSite (JSON-LD) -->
   <script type="application/ld+json">
